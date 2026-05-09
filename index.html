@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulse Label™ — La norme mondiale des attractions</title>
+<meta name="description" content="Pulse Label™ est le premier système de notation indépendant pour les attractions des parcs à thème du monde entier. 6 niveaux. Un score universel de 0 à 10.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:    #f5f5f7;
+  --bg1:   #efefef;
+  --bg2:   #e8e8ec;
+  --line:  #d8d8dc;
+  --line2: #cccccc;
+  --line3: #bbbbbb;
+  --text:  #0a0a0a;
+  --soft:  #6e6e73;
+  --dim:   #888888;
+  --v:     #a855f7;
+  --vf:    rgba(168,85,247,.08);
+
+  --dead:  #48484a;
+  --rise:  #22c55e;
+  --spark: #1d5fa8;
+  --sig:   #c2521a;
+  --ult:   #c0392b;
+  --leg:   #a855f7;
+
+  --f-head: 'Syne', 'Segoe UI', Arial, sans-serif;
+  --f-body: 'Outfit', 'Segoe UI', Arial, sans-serif;
+  --f-mono: 'DM Mono', 'Courier New', monospace;
+  --ease: cubic-bezier(.25,.1,.25,1);
+}
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--f-body); overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 52px; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(0,0,0,.72); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: .5px solid var(--line);
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-mark {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: rgba(255,255,255,.06);
+  border: .5px solid rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.logo-text {
+  font-family: var(--f-head); font-size: 15px; font-weight: 700;
+  color: #fff; letter-spacing: .5px;
+}
+.logo-tm {
+  font-family: var(--f-mono); font-size: 9px; color: var(--v);
+  vertical-align: super; margin-left: 1px; font-weight: 300;
+}
+.nav-links { display: flex; align-items: center; gap: 0; }
+.nav-links a {
+  font-size: 12px; color: var(--soft); text-decoration: none;
+  padding: 0 16px; height: 52px; display: flex; align-items: center;
+  letter-spacing: .2px; transition: color .2s var(--ease);
+  font-weight: 400;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--v) !important; color: #fff !important;
+  padding: 6px 16px !important; height: auto !important;
+  border-radius: 980px; font-size: 12px !important;
+  font-weight: 600 !important; letter-spacing: .2px !important;
+  margin-left: 8px; transition: background .2s var(--ease) !important;
+}
+.nav-cta:hover { background: #9333ea !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 120px 40px 80px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+
+/* ── HERO GLOW — radial halo subtil ── */
+.hero-light {
+  position: absolute;
+  top: -20%; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse 50% 40% at 50% 20%,
+    rgba(168,85,247,.07) 0%,
+    rgba(168,85,247,.03) 50%,
+    transparent 70%);
+  pointer-events: none;
+}
+.hero-light::before {
+  content: '';
+  position: absolute;
+  top: 55%; left: 50%; transform: translate(-50%,-50%);
+  width: 500px; height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(168,85,247,.2) 30%,
+    rgba(168,85,247,.3) 50%,
+    rgba(168,85,247,.2) 70%,
+    transparent 100%);
+}
+.hero-light::after { display: none; }
+
+.hero-body { position: relative; z-index: 1; max-width: 680px; }
+
+.hero-eyebrow {
+  font-family: var(--f-mono); font-size: 11px; font-weight: 300;
+  color: var(--soft); letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 28px; display: block;
+}
+
+.hero-h1 {
+  font-family: var(--f-head);
+  font-size: clamp(36px, 5.5vw, 72px);
+  font-weight: 700; line-height: .95;
+  letter-spacing: -1.5px; color: #ffffff;
+  margin-bottom: 12px;
+}
+.hero-h1 .muted { color: #aaaaaa; font-weight: 400; }
+.hero-h1 .v {
+  color: var(--v);
+}
+
+.hero-tm-line {
+  font-family: var(--f-mono); font-size: 11px; font-weight: 300;
+  color: var(--dim); letter-spacing: 4px; text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.hero-sub {
+  font-size: 19px; font-weight: 300; color: var(--soft);
+  line-height: 1.6; max-width: 560px; margin: 0 auto 48px;
+  letter-spacing: -.2px;
+}
+
+.hero-btns {
+  display: flex; gap: 14px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 80px;
+}
+.btn-fill {
+  background: var(--v); color: #fff;
+  padding: 14px 28px; border-radius: 980px;
+  font-size: 14px; font-weight: 500; letter-spacing: -.2px;
+  text-decoration: none; transition: background .2s var(--ease);
+  box-shadow: 0 0 28px rgba(168,85,247,.3);
+}
+.btn-fill:hover { background: #9333ea; }
+.btn-line {
+  border: 1px solid rgba(255,255,255,.18); color: #fff;
+  padding: 14px 28px; border-radius: 980px;
+  font-size: 14px; font-weight: 400; letter-spacing: -.2px;
+  text-decoration: none; background: rgba(255,255,255,.04);
+  transition: border-color .2s var(--ease), background .2s;
+}
+.btn-line:hover { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.08); }
+
+/* Score spectrum — barre premium */
+.spectrum {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  width: 100%; max-width: 560px;
+  margin: 0 auto;
+}
+.spectrum-bar {
+  display: flex; width: 100%; height: 3px;
+  border-radius: 3px; overflow: hidden; gap: 2px;
+}
+.spectrum-seg {
+  flex: 1; border-radius: 3px;
+  transition: flex .3s var(--ease), opacity .3s;
+}
+.spectrum-seg:hover { flex: 1.8; opacity: 1 !important; }
+.spectrum-labels {
+  display: flex; width: 100%; justify-content: space-between;
+  padding: 0 2px;
+}
+.sp-lbl {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  flex: 1;
+}
+.sp-lbl-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+}
+.sp-lbl-name {
+  font-family: var(--f-mono); font-size: 8px; font-weight: 400;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  white-space: nowrap;
+}
+.sp-lbl-score {
+  font-family: var(--f-mono); font-size: 7px; font-weight: 300;
+  color: var(--dim); letter-spacing: .5px;
+}
+
+/* ── DIVIDER ── */
+.rule { height: .5px; background: var(--line); }
+
+/* ── STATS ── */
+.stats {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-bottom: .5px solid var(--line);
+}
+.stat {
+  padding: 36px 40px; border-right: .5px solid var(--line);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.stat:last-child { border-right: none; }
+.stat-n {
+  font-family: var(--f-mono); font-size: 36px; font-weight: 400;
+  color: var(--v); line-height: 1; letter-spacing: -1px;
+}
+.stat-l {
+  font-size: 12px; font-weight: 300; color: var(--soft);
+  letter-spacing: .2px;
+}
+
+/* ── SECTION WRAPPER ── */
+.section {
+  max-width: 980px; margin: 0 auto;
+  padding: 100px 40px;
+}
+.section-wide {
+  max-width: 1200px; margin: 0 auto;
+  padding: 100px 40px;
+}
+.section-center { text-align: center; }
+.section-center .sec-sub { margin: 0 auto; }
+
+.sec-eyebrow {
+  font-family: var(--f-mono); font-size: 10px; font-weight: 300;
+  color: var(--soft); letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 16px; display: block;
+}
+.sec-h2 {
+  font-family: var(--f-head); font-size: clamp(32px,4vw,52px);
+  font-weight: 700; color: inherit; line-height: 1.0;
+  letter-spacing: -1.5px; margin-bottom: 16px;
+}
+.sec-h2 em { font-style: normal; color: var(--dim); font-weight: 300; }
+.sec-sub {
+  font-size: 17px; font-weight: 300; color: var(--soft);
+  line-height: 1.7; max-width: 560px; letter-spacing: -.1px;
+}
+
+/* ── LEVELS ── */
+.levels-wrap { border-top: .5px solid var(--line); }
+.level-row {
+  display: grid; grid-template-columns: 100px 1fr 120px 180px;
+  align-items: center; gap: 32px;
+  padding: 22px 0; border-bottom: .5px solid var(--line);
+  transition: background .2s var(--ease);
+}
+.level-row:hover { background: var(--bg1); padding-left: 16px; padding-right: 16px; margin: 0 -16px; border-radius: 12px; }
+.level-row:last-child { border-bottom: none; }
+.lr-num {
+  font-family: var(--f-mono); font-size: 13px; font-weight: 400;
+  letter-spacing: .5px; opacity: .6;
+}
+.lr-body {}
+.lr-name {
+  font-family: var(--f-head); font-size: 18px; font-weight: 700;
+  letter-spacing: -.3px; margin-bottom: 3px;
+}
+.lr-desc { font-size: 13px; font-weight: 300; color: var(--soft); }
+.lr-bar-track {
+  height: 2px; background: var(--line2); border-radius: 2px; overflow: hidden;
+}
+.lr-bar { height: 100%; border-radius: 2px; opacity: .65; }
+.lr-tag {
+  font-family: var(--f-mono); font-size: 9px; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 980px; border: .5px solid;
+  text-align: center; white-space: nowrap;
+}
+
+/* ── CATEGORIES ── */
+.cat-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: .5px; background: var(--line);
+  border: .5px solid var(--line); border-radius: 18px; overflow: hidden;
+  margin-top: 52px;
+}
+.cat-cell {
+  background: #000; padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: background .25s var(--ease);
+}
+.cat-cell:hover { background: #1a1a1a; }
+.cat-icon { font-size: 28px; }
+.cat-name {
+  font-family: var(--f-head); font-size: 16px; font-weight: 600;
+  color: #fff; letter-spacing: -.3px;
+}
+.cat-desc { font-size: 13px; font-weight: 300; color: #888; line-height: 1.55; }
+
+/* ── SHOWCASE ── */
+.sc-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 12px; margin-top: 52px;
+}
+.sc-card {
+  background: #000; border: .5px solid #2a2a2a;
+  border-radius: 18px; padding: 24px;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: border-color .2s var(--ease), transform .25s var(--ease);
+  position: relative; overflow: hidden;
+}
+.sc-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 1.5px; border-radius: 18px 0 0 18px;
+}
+.sc-card:hover { border-color: #444; transform: translateY(-3px); }
+.sc-park {
+  font-family: var(--f-mono); font-size: 9px; font-weight: 300;
+  color: var(--soft); letter-spacing: 2px; text-transform: uppercase;
+}
+.sc-name { font-size: 15px; font-weight: 500; color: #fff; line-height: 1.3; flex: 1; }
+.sc-cat { font-size: 12px; font-weight: 300; color: var(--soft); margin-bottom: 10px; }
+.sc-badge {
+  display: inline-flex; flex-direction: column; gap: 1px;
+  padding: 8px 14px; border-radius: 10px; border: .5px solid;
+  align-self: flex-start;
+}
+.sc-score { font-family: var(--f-mono); font-size: 24px; font-weight: 400; line-height: 1; }
+.sc-level { font-family: var(--f-mono); font-size: 7px; font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; opacity: .8; }
+
+/* ── METHOD STRIP ── */
+.method-strip {
+  border-top: .5px solid var(--line);
+  border-bottom: .5px solid var(--line);
+}
+.method-inner {
+  max-width: 980px; margin: 0 auto; padding: 80px 40px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center; color: #000;
+}
+.method-steps { display: flex; flex-direction: column; gap: 0; }
+.method-step {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 20px 0; border-bottom: .5px solid #e0e0e0;
+}
+.method-step:last-child { border-bottom: none; }
+.ms-num {
+  font-family: var(--f-mono); font-size: 11px; font-weight: 300;
+  color: #aaa; min-width: 24px; padding-top: 2px;
+}
+.ms-body {}
+.ms-title { font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 4px; letter-spacing: -.2px; }
+.ms-desc { font-size: 13px; font-weight: 300; color: #666; line-height: 1.55; }
+
+/* ── CTA ── */
+.cta-sec {
+  text-align: center; padding: 120px 40px;
+  position: relative; overflow: hidden;
+}
+.cta-light {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 1px; height: 50%;
+  background: linear-gradient(0deg, transparent 0%, rgba(168,85,247,.4) 60%, transparent 100%);
+  pointer-events: none;
+}
+.cta-sec h2 {
+  font-family: var(--f-head); font-size: clamp(36px,5vw,64px);
+  font-weight: 700; color: #fff; letter-spacing: -2px;
+  line-height: 1.0; margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.cta-sec h2 .v { color: var(--v); }
+.cta-sec p {
+  font-size: 19px; font-weight: 300; color: var(--soft);
+  max-width: 480px; margin: 0 auto 44px; line-height: 1.6;
+  letter-spacing: -.2px; position: relative; z-index: 1;
+}
+.cta-btns { display: flex; gap: 12px; justify-content: center; position: relative; z-index: 1; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: .5px solid var(--line);
+  padding: 32px 40px; background: var(--bg);
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.ft-left { display: flex; align-items: center; gap: 20px; }
+.ft-name {
+  font-family: var(--f-head); font-size: 13px; font-weight: 600;
+  color: #fff; letter-spacing: .5px;
+}
+.ft-tm { font-family: var(--f-mono); font-size: 8px; color: var(--v); vertical-align: super; }
+.ft-copy { font-size: 12px; font-weight: 300; color: #888; }
+.ft-dots { display: flex; gap: 5px; align-items: center; }
+.fd { width: 6px; height: 6px; border-radius: 50%; }
+.ft-links { display: flex; gap: 24px; }
+.ft-links a {
+  font-size: 12px; font-weight: 300; color: var(--soft);
+  text-decoration: none; transition: color .2s;
+}
+.ft-links a:hover { color: var(--text); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+.d4{transition-delay:.24s}.d5{transition-delay:.30s}.d6{transition-delay:.36s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  /* Nav */
+  nav { padding: 0 20px; height: 48px; }
+  .nav-links { display: none; }
+  .logo-text { font-size: 13px; }
+
+  /* Hero */
+  .hero { padding: 88px 20px 52px; }
+  .hero-body { max-width: 100%; }
+  .hero-eyebrow { font-size: 9px; letter-spacing: 2px; margin-bottom: 20px; }
+  .hero-h1 { letter-spacing: -1px; margin-bottom: 10px; }
+  .hero-tm-line { font-size: 9px; letter-spacing: 2px; margin-bottom: 20px; }
+  .hero-sub { font-size: 15px; margin-bottom: 32px; max-width: 100%; }
+  .hero-btns {
+    margin-bottom: 44px; flex-direction: column;
+    align-items: stretch; gap: 10px;
+  }
+  .btn-fill, .btn-line {
+    width: 100%; text-align: center;
+    padding: 14px 20px; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Spectrum */
+  .spectrum { max-width: 100%; }
+  .sp-lbl-score { display: none; }
+  .sp-lbl-name { font-size: 7px; letter-spacing: 1px; }
+
+  /* Stats */
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stat {
+    border-right: none; border-bottom: .5px solid var(--line);
+    padding: 20px 16px;
+  }
+  .stat-n { font-size: 26px; }
+  .stat-l { font-size: 10px; }
+
+  /* Sections */
+  .section { padding: 56px 20px; }
+  .section-wide { padding: 56px 20px; }
+  .sec-eyebrow { font-size: 9px; }
+  .sec-h2 { font-size: clamp(26px, 7vw, 40px); letter-spacing: -.5px; }
+  .sec-lead { font-size: 14px; max-width: 100%; }
+
+  /* Levels */
+  .level-row {
+    grid-template-columns: 72px 1fr;
+    gap: 12px; padding: 14px 0;
+  }
+  .lr-bar-track, .lr-tag { display: none; }
+  .lr-num { font-size: 11px; }
+  .lr-name { font-size: 15px; }
+  .lr-desc { font-size: 12px; }
+
+  /* Categories */
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: .5px; }
+  .cat-cell { padding: 20px 16px; }
+  .cat-icon { font-size: 22px; }
+  .cat-name { font-size: 13px; }
+  .cat-desc { font-size: 11px; }
+
+  /* Showcase */
+  .sc-grid { grid-template-columns: 1fr; gap: 10px; }
+  .sc-card { padding: 18px; }
+  .sc-park { font-size: 8px; }
+  .sc-name { font-size: 13px; }
+
+  /* Method */
+  .method-strip .method-inner {
+    grid-template-columns: 1fr; gap: 32px;
+    padding: 56px 20px;
+  }
+  .ms-title { font-size: 14px; }
+  .ms-desc { font-size: 12px; }
+
+  /* CTA */
+  .cta-sec { padding: 72px 20px; }
+  .cta-sec h2 { font-size: clamp(28px, 7vw, 44px); letter-spacing: -.5px; }
+  .cta-sec p { font-size: 15px; }
+  .cta-btns { flex-direction: column; align-items: stretch; gap: 10px; }
+  .cta-btns .btn-fill, .cta-btns .btn-line {
+    width: 100%; text-align: center;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Footer */
+  footer {
+    padding: 28px 20px; flex-direction: column;
+    text-align: center; gap: 16px;
+  }
+  .ft-left { flex-direction: column; gap: 6px; align-items: center; }
+  .ft-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+  .ft-dots { justify-content: center; }
+}
+
+@media(max-width:480px){
+  .hero-h1 { letter-spacing: -.5px; }
+  .cat-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .sp-lbl-name { font-size: 6px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-mark">
+      <svg width="20" height="13" viewBox="0 0 260 180" fill="none">
+        <path d="M20 128 C30 128 38 118 50 100 C60 84 68 64 80 44 C90 28 100 18 114 14 C128 10 140 18 152 34 C164 50 170 76 176 104 C180 118 184 128 196 128" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="20" y1="140" x2="196" y2="140" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity=".35"/>
+        <circle cx="72"  cy="152" r="10" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+        <circle cx="108" cy="152" r="10" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+        <circle cx="144" cy="152" r="10" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+        <circle cx="114" cy="14" r="7" fill="#ffffff"/>
+      </svg>
+    </div>
+    <span class="logo-text">Pulse Label<span class="logo-tm">™</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#system">Système</a>
+    <a href="pages/methodologie.html">Méthodologie</a>
+    <a href="pages/explorer.html">Explorer</a>
+    <a href="mailto:contact@thepulselabel.com" class="nav-cta">Évaluer un parc</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-light"></div>
+  <div class="hero-body">
+    <span class="hero-eyebrow reveal">Norme internationale · Fondée 2025</span>
+    <h1 class="hero-h1 reveal d1">
+      <span style="color:#4a4a4a;font-weight:300;">La référence</span><br>
+      <span class="muted">mondiale</span><br>
+      <span style="color:#4a4a4a;font-weight:300;">des</span> <span class="v">attractions.</span>
+    </h1>
+    <div class="hero-tm-line reveal d2">Pulse Label™ · Système de notation</div>
+    <p class="hero-sub reveal d3">
+      Premier système de notation indépendant pour les attractions des parcs à thème du monde entier. 6 niveaux. Un score universel de 0 à 10.
+    </p>
+    <div class="hero-btns reveal d4">
+      <a href="pages/explorer.html" class="btn-fill" style="background:#2a2a2a;color:#fff;box-shadow:none;">Explorer les classements</a>
+      <a href="pages/methodologie.html" class="btn-line" style="color:var(--v);border-color:rgba(168,85,247,.35);">Découvrir la méthode</a>
+    </div>
+    <!-- Score spectrum — barre premium -->
+    <div class="spectrum reveal d5">
+      <div class="spectrum-bar">
+        <div class="spectrum-seg" style="background:var(--dead);opacity:.6;flex:3"></div>
+        <div class="spectrum-seg" style="background:var(--rise);opacity:.8;flex:2"></div>
+        <div class="spectrum-seg" style="background:var(--spark);opacity:.85;flex:1.5"></div>
+        <div class="spectrum-seg" style="background:var(--sig);opacity:.9;flex:1.5"></div>
+        <div class="spectrum-seg" style="background:var(--ult);opacity:.95;flex:1.2"></div>
+        <div class="spectrum-seg" style="background:var(--leg);opacity:1;flex:.8"></div>
+      </div>
+      <div class="spectrum-labels">
+        <div class="sp-lbl">
+          <div class="sp-lbl-dot" style="background:var(--dead)"></div>
+          <div class="sp-lbl-name" style="color:var(--dead)">Dead</div>
+          <div class="sp-lbl-score">0–3</div>
+        </div>
+        <div class="sp-lbl">
+          <div class="sp-lbl-dot" style="background:var(--rise)"></div>
+          <div class="sp-lbl-name" style="color:var(--rise)">Rise</div>
+          <div class="sp-lbl-score">3–5</div>
+        </div>
+        <div class="sp-lbl">
+          <div class="sp-lbl-dot" style="background:var(--spark)"></div>
+          <div class="sp-lbl-name" style="color:var(--spark)">Spark</div>
+          <div class="sp-lbl-score">5–6.5</div>
+        </div>
+        <div class="sp-lbl">
+          <div class="sp-lbl-dot" style="background:var(--sig)"></div>
+          <div class="sp-lbl-name" style="color:var(--sig)">Signature</div>
+          <div class="sp-lbl-score">6.5–8</div>
+        </div>
+        <div class="sp-lbl">
+          <div class="sp-lbl-dot" style="background:var(--ult)"></div>
+          <div class="sp-lbl-name" style="color:var(--ult)">Ultimate</div>
+          <div class="sp-lbl-score">8–9.2</div>
+        </div>
+        <div class="sp-lbl">
+          <div class="sp-lbl-dot" style="background:var(--leg)"></div>
+          <div class="sp-lbl-name" style="color:var(--leg)">Legendary</div>
+          <div class="sp-lbl-score">9.2–10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:.5px;background:#e8e8e4;"></div>
+
+<!-- ── STATS ── -->
+<div class="stats">
+  <div class="stat reveal"><div class="stat-n" style="color:var(--v)">6</div><div class="stat-l">Niveaux Pulse</div></div>
+  <div class="stat reveal d1"><div class="stat-n" style="color:var(--v)">0 → 10</div><div class="stat-l">Score universel</div></div>
+  <div class="stat reveal d2"><div class="stat-n" style="color:var(--v)">6</div><div class="stat-l">Catégories</div></div>
+  <div class="stat reveal d3"><div class="stat-n" style="color:var(--v)">∞</div><div class="stat-l">Parcs dans le monde</div></div>
+</div>
+
+<!-- ── LEVELS ── -->
+<div class="section" id="system">
+  <span class="sec-eyebrow reveal">Le système</span>
+  <h2 class="sec-h2 reveal d1"><span style="color:var(--v)">6 niveaux.</span><br><em>Une seule vérité.</em></h2>
+  <p class="sec-sub reveal d2">Chaque attraction reçoit un Pulse Score de 0 à 10 basé sur une méthodologie rigoureuse et indépendante.</p>
+
+  <div class="levels-wrap" style="margin-top:52px;">
+    <div class="level-row reveal">
+      <span class="lr-num" style="color:var(--dead)">0 – 3</span>
+      <div class="lr-body"><div class="lr-name" style="color:var(--dead)">Dead Zone</div><div class="lr-desc">Attraction sans intérêt notable — à éviter</div></div>
+      <div class="lr-bar-track"><div class="lr-bar" style="width:30%;background:var(--dead)"></div></div>
+      <span class="lr-tag" style="color:var(--dead);border-color:var(--dead);background:rgba(72,72,74,.08)">À éviter</span>
+    </div>
+    <div class="level-row reveal d1">
+      <span class="lr-num" style="color:var(--rise)">3 – 5</span>
+      <div class="lr-body"><div class="lr-name" style="color:var(--rise)">Rise</div><div class="lr-desc">Fonctionnelle et correcte — remplit son rôle</div></div>
+      <div class="lr-bar-track"><div class="lr-bar" style="width:50%;background:var(--rise)"></div></div>
+      <span class="lr-tag" style="color:var(--rise);border-color:var(--rise);background:rgba(29,122,58,.08)">Correct</span>
+    </div>
+    <div class="level-row reveal d2">
+      <span class="lr-num" style="color:var(--spark)">5 – 6.5</span>
+      <div class="lr-body"><div class="lr-name" style="color:var(--spark)">Spark</div><div class="lr-desc">Bonne attraction avec des moments forts</div></div>
+      <div class="lr-bar-track"><div class="lr-bar" style="width:65%;background:var(--spark)"></div></div>
+      <span class="lr-tag" style="color:var(--spark);border-color:var(--spark);background:rgba(29,95,168,.08)">Bien</span>
+    </div>
+    <div class="level-row reveal d3">
+      <span class="lr-num" style="color:var(--sig)">6.5 – 8</span>
+      <div class="lr-body"><div class="lr-name" style="color:var(--sig)">Signature</div><div class="lr-desc">Excellente — pièce maîtresse d'un parc</div></div>
+      <div class="lr-bar-track"><div class="lr-bar" style="width:80%;background:var(--sig)"></div></div>
+      <span class="lr-tag" style="color:var(--sig);border-color:var(--sig);background:rgba(194,82,26,.08)">Excellent</span>
+    </div>
+    <div class="level-row reveal d4">
+      <span class="lr-num" style="color:var(--ult)">8 – 9.2</span>
+      <div class="lr-body"><div class="lr-name" style="color:var(--ult)">Ultimate</div><div class="lr-desc">Exceptionnelle — parmi les meilleures au monde</div></div>
+      <div class="lr-bar-track"><div class="lr-bar" style="width:92%;background:var(--ult)"></div></div>
+      <span class="lr-tag" style="color:var(--ult);border-color:var(--ult);background:rgba(192,57,43,.08)">Exceptionnel</span>
+    </div>
+    <div class="level-row reveal d5" style="background:var(--vf);border-radius:12px;padding-left:16px;padding-right:16px;margin:0 -16px;">
+      <span class="lr-num" style="color:var(--leg)">9.2 – 10</span>
+      <div class="lr-body"><div class="lr-name" style="color:var(--leg)">Legendary</div><div class="lr-desc">Référence mondiale absolue — redéfinit le standard</div></div>
+      <div class="lr-bar-track"><div class="lr-bar" style="width:100%;background:var(--leg)"></div></div>
+      <span class="lr-tag" style="color:var(--leg);border-color:rgba(168,85,247,.35);background:rgba(168,85,247,.08)">Référence mondiale</span>
+    </div>
+  </div>
+</div>
+
+<div style="height:.5px;background:#e8e8e4;"></div>
+
+<!-- ── CATEGORIES ── -->
+<div class="section-wide" id="categories" style="background:#000;color:#fff;">
+  <div class="section-center">
+    <span class="sec-eyebrow reveal" style="color:#666;">Catégories</span>
+    <h2 class="sec-h2 reveal d1" style="color:#fff;"><span style="color:var(--v)">Chaque attraction</span><br><span style="color:#555;font-weight:300;">a sa discipline.</span></h2>
+    <p class="sec-sub reveal d2" style="color:#888;">6 catégories couvrent l'ensemble des expériences proposées par les parcs à thème du monde entier.</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-cell reveal"><div class="cat-icon">🎢</div><div class="cat-name">Roller Coaster</div><div class="cat-desc">Montagnes russes de toutes tailles. Vitesse, hauteur, inversions, sensations.</div></div>
+    <div class="cat-cell reveal d1"><div class="cat-icon">🎭</div><div class="cat-name">Dark Ride</div><div class="cat-desc">Attractions en intérieur. Immersion, narration, effets spéciaux avancés.</div></div>
+    <div class="cat-cell reveal d2"><div class="cat-icon">🎠</div><div class="cat-name">Manège</div><div class="cat-desc">Du manège grand public au manège dynamique sensationnel. Pour tous les profils.</div></div>
+    <div class="cat-cell reveal d3"><div class="cat-icon">💧</div><div class="cat-name">Water Ride</div><div class="cat-desc">Rivières rapides, shoot the chutes, splash zones. L'eau en terrain de jeu.</div></div>
+    <div class="cat-cell reveal d4"><div class="cat-icon">🎪</div><div class="cat-name">Fun Ride</div><div class="cat-desc">Balade douce, petit train. L'amusement pour tous, sans limite d'âge.</div></div>
+    <div class="cat-cell reveal d5"><div class="cat-icon">🎬</div><div class="cat-name">Spectacle</div><div class="cat-desc">Shows, parades, performances live. L'art du divertissement en direct.</div></div>
+  </div>
+</div>
+
+<div style="height:.5px;background:var(--line);"></div>
+
+<!-- ── SHOWCASE ── -->
+<div class="section-wide" id="parcs">
+  <div class="section-center">
+    <span class="sec-eyebrow reveal">Dernières évaluations</span>
+    <h2 class="sec-h2 reveal d1"><span style="color:var(--v)">Les meilleures</span><br><em>attractions du moment.</em></h2>
+  </div>
+  <div class="sc-grid">
+    <div class="sc-card reveal" style="--accent:var(--leg)">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:1.5px;background:var(--leg);border-radius:18px 0 0 18px;"></div>
+      <div class="sc-park">Universal Epic Universe · Orlando</div>
+      <div class="sc-name">Harry Potter & the Battle at the Ministry</div>
+      <div class="sc-cat">🎭 Dark Ride</div>
+      <div class="sc-badge" style="border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.07);">
+        <span class="sc-score" style="color:var(--leg)">9.4</span>
+        <span class="sc-level" style="color:var(--leg)">Legendary</span>
+      </div>
+    </div>
+    <div class="sc-card reveal d1">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:1.5px;background:var(--ult);border-radius:18px 0 0 18px;"></div>
+      <div class="sc-park">Universal Epic Universe · Orlando</div>
+      <div class="sc-name">Stardust Racers</div>
+      <div class="sc-cat">🎢 Roller Coaster</div>
+      <div class="sc-badge" style="border-color:rgba(192,57,43,.3);background:rgba(192,57,43,.07);">
+        <span class="sc-score" style="color:var(--ult)">8.8</span>
+        <span class="sc-level" style="color:var(--ult)">Ultimate</span>
+      </div>
+    </div>
+    <div class="sc-card reveal d2">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:1.5px;background:var(--ult);border-radius:18px 0 0 18px;"></div>
+      <div class="sc-park">Europa-Park · Rust, Allemagne</div>
+      <div class="sc-name">Voltron Nevera · Premier coaster électrique</div>
+      <div class="sc-cat">🎢 Roller Coaster</div>
+      <div class="sc-badge" style="border-color:rgba(192,57,43,.3);background:rgba(192,57,43,.07);">
+        <span class="sc-score" style="color:var(--ult)">8.6</span>
+        <span class="sc-level" style="color:var(--ult)">Ultimate</span>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:36px;" class="reveal d3">
+    <a href="pages/explorer.html" class="btn-line" style="color:#000;border-color:rgba(0,0,0,.2);background:rgba(0,0,0,.04);">Voir tous les classements →</a>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- ── METHOD ── -->
+<div class="method-strip" id="methode">
+  <div class="method-inner">
+    <div>
+      <span class="sec-eyebrow reveal" style="color:#888;">Méthodologie</span>
+      <h2 class="sec-h2 reveal d1" style="color:#000;"><span style="color:var(--v)">Comment fonctionne</span><br><span style="color:#888;font-weight:300;">le Pulse Score ?</span></h2>
+      <p class="sec-sub reveal d2">Un processus en 4 étapes pour garantir l'objectivité et la fiabilité de chaque évaluation.</p>
+      <div style="margin-top:28px;" class="reveal d3">
+        <a href="pages/methodologie.html" class="btn-line" style="color:var(--v);border-color:rgba(168,85,247,.35);">Lire la méthodologie complète →</a>
+      </div>
+    </div>
+    <div class="method-steps reveal d2">
+      <div class="method-step">
+        <span class="ms-num">01</span>
+        <div class="ms-body"><div class="ms-title" style="color:#888;">Visite terrain</div><div class="ms-desc">Chaque attraction est visitée en conditions réelles, plusieurs fois, à différentes périodes de l'année.</div></div>
+      </div>
+      <div class="method-step">
+        <span class="ms-num">02</span>
+        <div class="ms-body"><div class="ms-title" style="color:#888;">Critères Pulse</div><div class="ms-desc">Évaluation selon 5 critères standardisés : immersion, sensations, technicité, accessibilité, rejouabilité.</div></div>
+      </div>
+      <div class="method-step">
+        <span class="ms-num">03</span>
+        <div class="ms-body"><div class="ms-title" style="color:#888;">Score calculé</div><div class="ms-desc">Le Pulse Score de 0 à 10 est calculé et positionné dans l'un des 6 niveaux officiels.</div></div>
+      </div>
+      <div class="method-step">
+        <span class="ms-num">04</span>
+        <div class="ms-body"><div class="ms-title" style="color:#888;">Label attribué</div><div class="ms-desc">Le Pulse Label™ officiel est publié et devient la référence internationale pour cette attraction.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-sec" id="contact">
+  <div class="cta-light" style="display:none;"></div>
+  <h2 class="reveal" style="color:#000;font-weight:800;">Votre parc mérite<br>son Pulse Label<span style="color:var(--v)">™</span></h2>
+  <p class="reveal d1">Demandez l'évaluation officielle de vos attractions et rejoignez la première norme internationale indépendante.</p>
+  <div class="cta-btns reveal d2">
+    <a href="mailto:contact@thepulselabel.com" class="btn-fill">Demander une évaluation</a>
+    <a href="#system" class="btn-line">En savoir plus</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="ft-left">
+    <span class="ft-name">Pulse Label<span class="ft-tm">™</span></span>
+    <span class="ft-copy">© 2025 · Norme internationale · Tous droits réservés</span>
+  </div>
+  <div class="ft-dots">
+    <div class="fd" style="background:var(--dead)"></div>
+    <div class="fd" style="background:var(--rise)"></div>
+    <div class="fd" style="background:var(--spark)"></div>
+    <div class="fd" style="background:var(--sig)"></div>
+    <div class="fd" style="background:var(--ult)"></div>
+    <div class="fd" style="background:var(--leg)"></div>
+  </div>
+  <div class="ft-links">
+    <a href="pages/methodologie.html">Méthodologie</a>
+    <a href="pages/explorer.html">Explorer</a>
+    <a href="mailto:contact@thepulselabel.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.borderBottomColor = window.scrollY > 40
+    ? 'rgba(255,255,255,.06)' : 'var(--line)';
+});
+</script>
+</body>
+</html>

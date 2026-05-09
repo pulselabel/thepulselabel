@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Méthodologie Pulse Label™ — Comment nous évaluons les attractions</title>
+<meta name="description" content="Découvrez la méthodologie officielle Pulse Label™ : 5 critères, 6 niveaux, un score universel de 0 à 10. Le premier système de notation indépendant pour les parcs à thème.">
+<meta name="keywords" content="méthodologie pulse label, système notation attractions, évaluation parcs thème, pulse score, critères notation roller coaster">
+<meta property="og:title" content="Méthodologie Pulse Label™ — La norme internationale">
+<meta property="og:description" content="5 critères rigoureux, 6 niveaux officiels, un score de 0 à 10. La méthodologie complète du premier système de notation indépendant pour les attractions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thepulselabel.com/methodologie">
+<link rel="canonical" href="https://thepulselabel.com/methodologie">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#f5f5f7;--bg1:#efefef;--bg2:#e8e8ec;
+  --line:#d8d8dc;--line2:#cccccc;--line3:#bbbbbb;
+  --text:#0a0a0a;--soft:#6e6e73;--dim:#888888;
+  --v:#a855f7;--vf:rgba(168,85,247,.06);
+  --dead:#48484a;--rise:#22c55e;--spark:#1d5fa8;
+  --sig:#c2521a;--ult:#c0392b;--leg:#a855f7;
+
+  /* ── Pulse Bonus Badges ── */
+  --rb:#e2b714;   /* Record Breaker — or */
+  --tm:#0ea5e9;   /* Theme Master   — bleu ciel */
+  --ec:#f472b6;   /* Elite Creator  — rose */
+  --f-head:'Syne','Segoe UI',Arial,sans-serif;--f-body:'Outfit','Segoe UI',Arial,sans-serif;--f-mono:'DM Mono','Courier New',monospace;
+  --ease:cubic-bezier(.25,.1,.25,1);
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:52px;padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(0,0,0,.72);backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:.5px solid var(--line);transition:border-color .3s;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{
+  width:30px;height:30px;border-radius:8px;
+  background:rgba(0,0,0,.06);border:.5px solid rgba(0,0,0,.12);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.logo-text{font-family:var(--f-head);font-size:15px;font-weight:700;color:#000;letter-spacing:.5px;}
+.logo-tm{font-family:var(--f-mono);font-size:9px;color:var(--v);vertical-align:super;margin-left:1px;font-weight:300;}
+.nav-links{display:flex;align-items:center;gap:0;}
+.nav-links a{font-size:12px;color:var(--soft);text-decoration:none;padding:0 16px;height:52px;display:flex;align-items:center;letter-spacing:.2px;transition:color .2s var(--ease);font-weight:400;}
+.nav-links a:hover,.nav-links a.active{color:#000;}
+.nav-cta{background:var(--v)!important;color:#fff!important;padding:6px 16px!important;height:auto!important;border-radius:980px;font-size:12px!important;font-weight:600!important;margin-left:8px;transition:background .2s var(--ease)!important;}
+.nav-cta:hover{background:#9333ea!important;}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  padding:140px 40px 80px;text-align:center;
+  position:relative;overflow:hidden;
+  border-bottom:.5px solid var(--line);
+}
+.hero-light{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:1px;height:55%;
+  background:linear-gradient(180deg,transparent 0%,rgba(168,85,247,.45) 40%,rgba(168,85,247,.15) 80%,transparent 100%);
+  pointer-events:none;
+}
+.hero-light::after{
+  content:'';position:absolute;top:35%;left:50%;transform:translateX(-50%);
+  width:420px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(168,85,247,.12),transparent);
+}
+.page-hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;}
+.page-eyebrow{
+  font-family:var(--f-mono);font-size:10px;font-weight:300;
+  color:var(--soft);letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:24px;display:block;
+}
+.page-h1{
+  font-family:var(--f-head);font-size:clamp(42px,6vw,80px);
+  font-weight:700;line-height:.93;letter-spacing:-2px;
+  color:#fff;margin-bottom:10px;
+}
+.page-h1 .v{color:var(--v);}
+.page-tm{font-family:var(--f-mono);font-size:10px;font-weight:300;color:var(--dim);letter-spacing:4px;text-transform:uppercase;margin-bottom:28px;}
+.page-sub{font-size:17px;font-weight:300;color:var(--soft);line-height:1.7;max-width:520px;margin:0 auto;}
+
+/* ── LAYOUT ── */
+.wrap{max-width:980px;margin:0 auto;padding:0 40px;}
+.wrap-wide{max-width:1200px;margin:0 auto;padding:0 40px;}
+.rule{height:.5px;background:var(--line);}
+.section{padding:88px 0;}
+
+.sec-eyebrow{
+  font-family:var(--f-mono);font-size:10px;font-weight:300;
+  color:var(--soft);letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:14px;display:block;
+}
+.sec-h2{
+  font-family:var(--f-head);font-size:clamp(28px,3.5vw,44px);
+  font-weight:700;color:#fff;line-height:1.05;
+  letter-spacing:-1px;margin-bottom:14px;
+}
+.sec-h2 em{font-style:normal;color:var(--dim);font-weight:300;}
+.sec-lead{font-size:16px;font-weight:300;color:var(--soft);line-height:1.75;max-width:540px;}
+
+/* ── INTRO SPLIT ── */
+.intro-split{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.intro-quote{
+  border-left:1px solid var(--v);padding-left:28px;
+}
+.iq-text{
+  font-family:var(--f-head);font-size:clamp(20px,2.5vw,28px);font-weight:500;
+  color:#fff;line-height:1.35;letter-spacing:-.5px;margin-bottom:16px;
+}
+.iq-text .v{color:var(--v);}
+.iq-attr{font-family:var(--f-mono);font-size:10px;color:var(--soft);letter-spacing:2px;text-transform:uppercase;}
+
+/* ── CRITERIA ── */
+.criteria-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  margin-top:52px;
+}
+.crit-cell{
+  background:#000;padding:28px 20px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:background .2s var(--ease);
+  position:relative;overflow:hidden;
+}
+.crit-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--c);opacity:.6;
+}
+.crit-cell:hover{background:#1a1a1a;}
+.crit-num{
+  font-family:var(--f-mono);font-size:10px;font-weight:300;
+  color:var(--soft);letter-spacing:2px;
+}
+.crit-icon{font-size:26px;}
+.crit-name{
+  font-family:var(--f-head);font-size:15px;font-weight:700;
+  color:#fff;letter-spacing:-.3px;
+}
+.crit-desc{font-size:12px;font-weight:300;color:var(--soft);line-height:1.6;}
+.crit-weight{
+  margin-top:auto;
+  font-family:var(--f-mono);font-size:9px;
+  color:var(--c);letter-spacing:1.5px;
+  padding:3px 8px;border-radius:4px;
+  background:rgba(168,85,247,.06);
+  border:.5px solid;border-color:var(--c);
+  opacity:.7;align-self:flex-start;
+}
+
+/* ── FORMULA ── */
+.formula-block{
+  background:var(--bg1);border:.5px solid var(--line2);
+  border-radius:16px;padding:44px;margin-top:52px;
+  position:relative;overflow:hidden;
+}
+.formula-block::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(168,85,247,.3),transparent);
+}
+.formula-label{
+  font-family:var(--f-mono);font-size:9px;color:var(--soft);
+  letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:block;
+}
+.formula{
+  font-family:var(--f-mono);font-size:clamp(14px,2vw,20px);
+  color:#fff;letter-spacing:1px;line-height:1.8;
+  border-left:.5px solid var(--line3);padding-left:28px;
+}
+.formula .v{color:var(--v);}
+.formula .op{color:var(--soft);}
+.formula .result{
+  display:inline-block;margin-top:16px;
+  color:var(--v);font-size:clamp(16px,2.5vw,24px);font-weight:500;
+  border-top:.5px solid var(--line2);padding-top:12px;
+}
+.formula-note{
+  font-size:12px;font-weight:300;color:var(--soft);
+  margin-top:20px;line-height:1.6;
+  border-top:.5px solid var(--line);padding-top:16px;
+}
+
+/* ── LEVELS FULL ── */
+.levels-full{margin-top:52px;display:flex;flex-direction:column;gap:0;}
+.lf-row{
+  display:grid;grid-template-columns:90px 180px 1fr 140px 110px;
+  align-items:center;gap:28px;
+  padding:20px 0;border-bottom:.5px solid var(--line);
+  transition:all .2s var(--ease);
+}
+.lf-row:first-child{
+  border-top:.5px solid var(--line);
+  padding-top:16px;padding-bottom:8px;
+}
+.lf-row.header{
+  padding:0 0 12px;
+}
+.lf-row.header span{
+  font-family:var(--f-mono);font-size:8px;color:var(--dim);
+  letter-spacing:2.5px;text-transform:uppercase;
+}
+.lf-row:not(.header):hover{
+  background:var(--bg1);padding-left:12px;padding-right:12px;
+  margin:0 -12px;border-radius:10px;border-color:transparent;
+}
+.lf-row:last-child{border-bottom:none;}
+.lf-score{font-family:var(--f-mono);font-size:13px;font-weight:400;letter-spacing:.5px;}
+.lf-name-wrap{display:flex;align-items:center;gap:10px;}
+.lf-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.lf-name{font-family:var(--f-head);font-size:17px;font-weight:700;letter-spacing:-.3px;}
+.lf-desc{font-size:13px;font-weight:300;color:var(--soft);line-height:1.55;}
+.lf-bar-track{height:2px;background:var(--line2);border-radius:2px;overflow:hidden;}
+.lf-bar{height:100%;border-radius:2px;}
+.lf-tag{
+  font-family:var(--f-mono);font-size:8px;font-weight:400;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:4px 10px;border-radius:980px;border:.5px solid;
+  text-align:center;white-space:nowrap;align-self:center;
+}
+
+/* ── PROCESS STEPS ── */
+.process-steps{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  margin-top:52px;
+}
+.ps-cell{
+  background:var(--bg1);padding:36px 32px;
+  transition:background .2s var(--ease);
+}
+.ps-cell:hover{background:var(--bg2);}
+.ps-num{
+  font-family:var(--f-mono);font-size:11px;font-weight:300;
+  color:var(--v);letter-spacing:2px;margin-bottom:16px;display:block;
+}
+.ps-title{
+  font-family:var(--f-head);font-size:20px;font-weight:700;
+  color:#fff;letter-spacing:-.5px;margin-bottom:10px;
+}
+.ps-body{font-size:14px;font-weight:300;color:var(--soft);line-height:1.7;}
+.ps-detail{
+  margin-top:16px;display:flex;flex-direction:column;gap:6px;
+}
+.ps-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:300;color:var(--soft);
+}
+.ps-item::before{content:'—';color:var(--dim);font-family:var(--f-mono);}
+
+/* ── INDEPENDENCE ── */
+.independence-band{
+  background:var(--bg1);border-top:.5px solid var(--line);
+  border-bottom:.5px solid var(--line);
+}
+.indep-inner{
+  max-width:980px;margin:0 auto;padding:80px 40px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.indep-pillars{display:flex;flex-direction:column;gap:0;}
+.indep-row{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:16px 0;border-bottom:.5px solid var(--line);
+}
+.indep-row:last-child{border-bottom:none;}
+.indep-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--bg2);border:.5px solid var(--line2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.indep-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;letter-spacing:-.2px;}
+.indep-desc{font-size:12px;font-weight:300;color:var(--soft);line-height:1.55;}
+
+/* ── CTA ── */
+.cta-sec{
+  text-align:center;padding:100px 40px;position:relative;overflow:hidden;
+}
+.cta-light{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:1px;height:50%;
+  background:linear-gradient(0deg,transparent,rgba(168,85,247,.35),transparent);
+  pointer-events:none;
+}
+.cta-sec h2{
+  font-family:var(--f-head);font-size:clamp(32px,4.5vw,56px);
+  font-weight:700;color:#fff;letter-spacing:-1.5px;
+  line-height:1.0;margin-bottom:16px;position:relative;z-index:1;
+}
+.cta-sec h2 .v{color:var(--v);}
+.cta-sec p{font-size:17px;font-weight:300;color:var(--soft);max-width:460px;margin:0 auto 40px;line-height:1.7;position:relative;z-index:1;}
+.cta-btns{display:flex;gap:12px;justify-content:center;position:relative;z-index:1;}
+.btn-fill{background:var(--v);color:#fff;padding:13px 28px;border-radius:980px;font-size:14px;font-weight:500;text-decoration:none;transition:background .2s var(--ease);box-shadow:0 0 24px rgba(168,85,247,.25);}
+.btn-fill:hover{background:#9333ea;}
+.btn-outline{border:1px solid rgba(255,255,255,.18);color:#fff;padding:13px 28px;border-radius:980px;font-size:14px;font-weight:400;text-decoration:none;background:rgba(255,255,255,.04);transition:all .2s var(--ease);}
+.btn-outline:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.08);}
+
+/* ── FOOTER ── */
+footer{
+  border-top:.5px solid var(--line);padding:32px 40px;background:var(--bg1);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.ft-left{display:flex;align-items:center;gap:20px;}
+.ft-name{font-family:var(--f-head);font-size:13px;font-weight:600;color:#000;letter-spacing:.5px;}
+.ft-tm{font-family:var(--f-mono);font-size:8px;color:var(--v);vertical-align:super;}
+.ft-copy{font-size:12px;font-weight:300;color:var(--soft);}
+.ft-dots{display:flex;gap:5px;align-items:center;}
+.fd{width:6px;height:6px;border-radius:50%;}
+.ft-links{display:flex;gap:24px;}
+.ft-links a{font-size:12px;font-weight:300;color:var(--soft);text-decoration:none;transition:color .2s;}
+.ft-links a:hover{color:var(--text);}
+
+/* ── BONUS BADGES ── */
+.badges-section{ padding:88px 0; }
+.badges-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  margin-top:52px;
+}
+.badge-cell{
+  background:#000;padding:32px 28px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:background .2s var(--ease);position:relative;overflow:hidden;
+}
+.badge-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--bc);
+}
+.badge-cell::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% -10%,var(--bg-glow) 0%,transparent 70%);
+  pointer-events:none;
+}
+.badge-cell:hover{background:#1a1a1a;}
+.badge-icon{font-size:32px;position:relative;z-index:1;}
+.badge-header{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
+.badge-name{
+  font-family:var(--f-head);font-size:20px;font-weight:700;
+  letter-spacing:-.3px;
+}
+.badge-bonus{
+  font-family:var(--f-mono);font-size:12px;font-weight:500;
+  padding:4px 12px;border-radius:980px;border:.5px solid;letter-spacing:1px;
+}
+.badge-desc{font-size:13px;font-weight:300;color:var(--soft);line-height:1.65;position:relative;z-index:1;}
+.badge-criteria{
+  display:flex;flex-direction:column;gap:5px;
+  padding:14px;border-radius:10px;border:.5px solid;
+  background:rgba(0,0,0,.3);position:relative;z-index:1;
+}
+.badge-crit-title{font-family:var(--f-mono);font-size:8px;color:var(--soft);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+.bc-item{
+  display:flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:300;color:var(--soft);
+}
+.bc-item::before{content:'–';color:var(--dim);font-family:var(--f-mono);}
+.badge-rule{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:8px;
+  border:.5px solid;background:rgba(0,0,0,.2);
+  font-size:11px;font-weight:300;color:var(--soft);
+  position:relative;z-index:1;
+}
+.badge-rule-icon{font-size:14px;flex-shrink:0;}
+
+/* Cumul note */
+.cumul-block{
+  margin-top:28px;
+  background:var(--vf);border:.5px solid rgba(168,85,247,.2);
+  border-radius:12px;padding:20px 24px;
+  display:flex;align-items:center;gap:16px;
+  position:relative;overflow:hidden;
+}
+.cumul-block::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--v);
+}
+.cumul-icon{font-size:20px;flex-shrink:0;}
+.cumul-text{font-size:13px;font-weight:300;color:var(--soft);line-height:1.6;}
+.cumul-text strong{color:var(--text);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+.d4{transition-delay:.24s}.d5{transition-delay:.30s}
+
+@media(max-width:900px){
+  nav{padding:0 20px;height:48px;}.nav-links{display:none;}
+  .logo-text{font-size:13px;}
+
+  /* Hero */
+  .page-hero{padding:88px 20px 48px;}
+  .page-eyebrow{font-size:9px;letter-spacing:2px;}
+  .page-h1{font-size:clamp(32px,8vw,52px);letter-spacing:-1px;}
+  .page-tm{font-size:9px;letter-spacing:2px;}
+  .page-sub{font-size:14px;}
+
+  /* Layout */
+  .wrap,.wrap-wide{padding:0 20px;}
+  .section{padding:52px 0;}
+
+  /* Intro */
+  .intro-split{grid-template-columns:1fr;gap:32px;}
+  .sec-h2{font-size:clamp(24px,6vw,36px);letter-spacing:-.5px;}
+  .sec-lead{font-size:14px;}
+
+  /* Criteria */
+  .criteria-grid{grid-template-columns:1fr 1fr;}
+  .crit-cell{padding:20px 16px;}
+  .crit-name{font-size:13px;}
+  .crit-desc{font-size:11px;}
+
+  /* Formula */
+  .formula-block{padding:24px 20px;}
+  .formula{font-size:clamp(11px,3vw,15px);padding-left:16px;}
+
+  /* Levels */
+  .lf-row{grid-template-columns:68px 1fr;gap:10px;padding:14px 0;}
+  .lf-bar-track,.lf-tag{display:none;}
+  .lf-score{font-size:11px;}
+  .lf-name{font-size:14px;}
+  .lf-desc{font-size:11px;}
+
+  /* Badges */
+  .badges-grid{grid-template-columns:1fr;}
+  .badge-cell{padding:24px 20px;}
+  .badge-name{font-size:17px;}
+
+  /* Process */
+  .process-steps{grid-template-columns:1fr;}
+  .ps-cell{padding:24px 20px;}
+  .ps-title{font-size:17px;}
+  .ps-body{font-size:13px;}
+
+  /* Independence */
+  .indep-inner{grid-template-columns:1fr;gap:32px;padding:52px 20px;}
+
+  /* CTA */
+  .cta-sec{padding:64px 20px;}
+  .cta-sec h2{font-size:clamp(26px,7vw,40px);letter-spacing:-.5px;}
+  .cta-sec p{font-size:14px;}
+  .cta-btns{flex-direction:column;align-items:stretch;gap:10px;}
+  .btn-fill,.btn-outline{
+    width:100%;text-align:center;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* Footer */
+  footer{padding:24px 20px;flex-direction:column;text-align:center;gap:14px;}
+  .ft-left{flex-direction:column;gap:6px;align-items:center;}
+  .ft-links{justify-content:center;flex-wrap:wrap;gap:14px;}
+  .ft-dots{justify-content:center;}
+}
+
+@media(max-width:480px){
+  .criteria-grid{grid-template-columns:1fr;}
+  .page-h1{letter-spacing:-.5px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../index.html" class="logo">
+    <div class="logo-mark">
+      <svg width="20" height="13" viewBox="0 0 260 180" fill="none">
+        <path d="M20 128 C30 128 38 118 50 100 C60 84 68 64 80 44 C90 28 100 18 114 14 C128 10 140 18 152 34 C164 50 170 76 176 104 C180 118 184 128 196 128" stroke="#000000" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="20" y1="140" x2="196" y2="140" stroke="#000000" stroke-width="3.5" stroke-linecap="round" opacity=".25"/>
+        <circle cx="72"  cy="152" r="10" stroke="#000000" stroke-width="3.5" fill="none"/>
+        <circle cx="108" cy="152" r="10" stroke="#000000" stroke-width="3.5" fill="none"/>
+        <circle cx="144" cy="152" r="10" stroke="#000000" stroke-width="3.5" fill="none"/>
+        <circle cx="114" cy="14" r="7" fill="#000000"/>
+      </svg>
+    </div>
+    <span class="logo-text">Pulse Label<span class="logo-tm">™</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html#system">Système</a>
+    <a href="methodologie.html" class="active">Méthodologie</a>
+    <a href="explorer.html">Explorer</a>
+    <a href="mailto:contact@thepulselabel.com" class="nav-cta">Évaluer un parc</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="hero-light"></div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow reveal">Méthodologie officielle</span>
+    <h1 class="page-h1 reveal d1"><span style="color:#000;font-weight:700;">Comment nous<br>évaluons</span><br><span class="v">les attractions.</span></h1>
+    <div class="page-tm reveal d2">Pulse Label™ · Processus indépendant</div>
+    <p class="page-sub reveal d3">5 critères standardisés, une formule transparente, 6 niveaux officiels et 3 badges bonus. Chaque score Pulse est le résultat d'un processus rigoureux et reproductible.</p>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- INTRO -->
+<div style="background:#fff;">
+<div class="wrap">
+  <div class="section">
+    <div class="intro-split">
+      <div>
+        <span class="sec-eyebrow reveal">Notre philosophie</span>
+        <h2 class="sec-h2 reveal d1"><span style="color:var(--v)">Une norme,</span><br><em>pas une opinion.</em></h2>
+        <p class="sec-lead reveal d2">Le Pulse Score n'est pas une note subjective. C'est le résultat d'une méthode structurée, appliquée de manière identique à chaque attraction, dans chaque parc, dans chaque pays. Ce qui le rend universel.</p>
+        <p class="sec-lead reveal d3" style="margin-top:16px;">Notre objectif : que le Pulse Label™ devienne la référence internationale que les visiteurs, les opérateurs et les médias utilisent pour comparer les expériences à travers le monde.</p>
+      </div>
+      <div class="intro-quote reveal d2">
+        <div class="iq-text" style="color:#1a1a1a;">"Un système de notation ne vaut que par sa <span class="v">rigueur</span> et sa <span class="v">cohérence</span>. Le Pulse Label™ a été conçu pour durer."</div>
+        <div class="iq-attr">— Pulse Label™ · Charte fondatrice 2025</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div style="height:.5px;background:#e0e0e0;"></div>
+
+<!-- CRITERIA -->
+<div class="wrap-wide">
+  <div class="section">
+    <span class="sec-eyebrow reveal">Les 5 critères</span>
+    <h2 class="sec-h2 reveal d1"><span style="color:var(--v)">Ce que nous évaluons</span><br><em>à chaque visite.</em></h2>
+    <p class="sec-lead reveal d2">Chaque attraction est évaluée selon 5 critères standardisés, pondérés pour garantir l'équité entre les catégories.</p>
+    <div class="criteria-grid">
+      <div class="crit-cell reveal" style="--c:#c0392b">
+        <span class="crit-num">01 / 05</span>
+        <div class="crit-icon">⚡</div>
+        <div class="crit-name">Sensations</div>
+        <div class="crit-desc">Intensité physique et émotionnelle, adrénaline, surprise, variation du rythme tout au long de l'expérience.</div>
+        <span class="crit-weight" style="border-color:#c0392b;color:#c0392b">25%</span>
+      </div>
+      <div class="crit-cell reveal d1" style="--c:#a855f7">
+        <span class="crit-num">02 / 05</span>
+        <div class="crit-icon">🎭</div>
+        <div class="crit-name">Immersion</div>
+        <div class="crit-desc">Qualité de l'univers narratif, cohérence visuelle et sonore, sentiment de transport dans un autre monde.</div>
+        <span class="crit-weight" style="--c:var(--v)">25%</span>
+      </div>
+      <div class="crit-cell reveal d2" style="--c:#1d5fa8">
+        <span class="crit-num">03 / 05</span>
+        <div class="crit-icon">⚙️</div>
+        <div class="crit-name">Technicité</div>
+        <div class="crit-desc">Niveau technologique, innovation, fiabilité mécanique, qualité des effets spéciaux et de l'ingénierie.</div>
+        <span class="crit-weight" style="border-color:#1d5fa8;color:#1d5fa8">20%</span>
+      </div>
+      <div class="crit-cell reveal d3" style="--c:#1d7a3a">
+        <span class="crit-num">04 / 05</span>
+        <div class="crit-icon">👨‍👩‍👧</div>
+        <div class="crit-name">Accessibilité</div>
+        <div class="crit-desc">Ouverture au plus grand nombre, confort de l'expérience, débit et fluidité de la file, accessibilité PMR, accueil et organisation.</div>
+        <span class="crit-weight" style="border-color:#1d7a3a;color:#1d7a3a">15%</span>
+      </div>
+      <div class="crit-cell reveal d4" style="--c:#c2521a">
+        <span class="crit-num">05 / 05</span>
+        <div class="crit-icon">💥</div>
+        <div class="crit-name">Impact</div>
+        <div class="crit-desc">Mémoire émotionnelle durable, envie de recommander, effet wow ressenti longtemps après la visite.</div>
+        <span class="crit-weight" style="border-color:#c2521a;color:#c2521a">15%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:.5px;background:#e0e0e0;"></div>
+
+<!-- FORMULA -->
+<div style="background:#fff;">
+<div class="wrap">
+  <div class="section">
+    <span class="sec-eyebrow reveal">La formule</span>
+    <h2 class="sec-h2 reveal d1"><span style="color:var(--v)">Un calcul</span><br><em>transparent.</em></h2>
+    <p class="sec-lead reveal d2">Le Pulse Score est calculé à partir des 5 critères pondérés, normalisé sur 10, puis arrondi au premier décimal.</p>
+    <div class="formula-block reveal d3">
+      <span class="formula-label">Formule officielle Pulse Score</span>
+      <div class="formula">
+        <span class="op">PS = (</span>
+        <span style="color:#000;font-weight:600;">Sensations</span><span class="op"> × 25%</span>
+        <span class="op"> + </span><span style="color:#000;font-weight:600;">Immersion</span><span class="op"> × 25%</span>
+        <span class="op"> + </span><span style="color:#000;font-weight:600;">Technicité</span><span class="op"> × 20%</span>
+        <span class="op"> + </span><span style="color:#000;font-weight:600;">Accessibilité</span><span class="op"> × 15%</span>
+        <span class="op"> + </span><span style="color:#000;font-weight:600;">Impact</span><span class="op"> × 15%</span>
+        <span class="op"> )</span>
+        <span class="op"> + </span><span style="color:var(--rb)">Badges bonus</span><span class="op"> (+ 0.5 chacun, max +1.5)</span>
+        <br>
+        <span class="result"><span class="v">Pulse Score final</span> ∈ [0.0 → 10.0]</span>
+      </div>
+      <div class="formula-note">
+        Chaque critère est noté de 0 à 10 lors de la visite terrain. La somme pondérée est calculée (total = 100%) puis arrondie au premier décimal. Les 3 badges bonus (Record Breaker, Theme Master, Elite Creator) ajoutent chacun +0.5 au score final — cumulables, plafonné à 10.0. Les attractions sont réévaluées chaque année ou en cas de modification majeure.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div style="height:.5px;background:var(--line);"></div>
+
+<!-- LEVELS -->
+<div class="wrap">
+  <div class="section">
+    <span class="sec-eyebrow reveal">Les 6 niveaux officiels</span>
+    <h2 class="sec-h2 reveal d1"><span style="color:var(--v)">Du score</span><br><em>au label.</em></h2>
+    <p class="sec-lead reveal d2">Une fois le Pulse Score calculé, l'attraction est automatiquement positionnée dans l'un des 6 niveaux officiels du Pulse Label™.</p>
+    <div class="levels-full">
+      <div class="lf-row header reveal">
+        <span>Score</span><span>Niveau</span><span>Description</span><span>Progression</span><span>Label</span>
+      </div>
+      <div class="lf-row reveal">
+        <span class="lf-score" style="color:var(--dead)">0.0 – 3.0</span>
+        <div class="lf-name-wrap"><div class="lf-dot" style="background:var(--dead)"></div><span class="lf-name" style="color:var(--dead)">Dead Zone</span></div>
+        <span class="lf-desc">Attraction sans intérêt notable. Expérience décevante ou défaillante.</span>
+        <div class="lf-bar-track"><div class="lf-bar" style="width:30%;background:var(--dead);opacity:.6"></div></div>
+        <span class="lf-tag" style="color:var(--dead);border-color:var(--dead);background:rgba(72,72,74,.08)">À éviter</span>
+      </div>
+      <div class="lf-row reveal d1">
+        <span class="lf-score" style="color:var(--rise)">3.0 – 5.0</span>
+        <div class="lf-name-wrap"><div class="lf-dot" style="background:var(--rise)"></div><span class="lf-name" style="color:var(--rise)">Rise</span></div>
+        <span class="lf-desc">Attraction fonctionnelle et correcte. Remplit son rôle sans marquer les esprits.</span>
+        <div class="lf-bar-track"><div class="lf-bar" style="width:50%;background:var(--rise);opacity:.7"></div></div>
+        <span class="lf-tag" style="color:var(--rise);border-color:var(--rise);background:rgba(29,122,58,.08)">Correct</span>
+      </div>
+      <div class="lf-row reveal d2">
+        <span class="lf-score" style="color:var(--spark)">5.0 – 6.5</span>
+        <div class="lf-name-wrap"><div class="lf-dot" style="background:var(--spark)"></div><span class="lf-name" style="color:var(--spark)">Spark</span></div>
+        <span class="lf-desc">Bonne attraction avec des moments forts. Vaut le détour lors d'une visite.</span>
+        <div class="lf-bar-track"><div class="lf-bar" style="width:65%;background:var(--spark);opacity:.7"></div></div>
+        <span class="lf-tag" style="color:var(--spark);border-color:var(--spark);background:rgba(29,95,168,.08)">Bien</span>
+      </div>
+      <div class="lf-row reveal d3">
+        <span class="lf-score" style="color:var(--sig)">6.5 – 8.0</span>
+        <div class="lf-name-wrap"><div class="lf-dot" style="background:var(--sig)"></div><span class="lf-name" style="color:var(--sig)">Signature</span></div>
+        <span class="lf-desc">Excellente attraction. Pièce maîtresse d'un parc, mémorable et très recommandée.</span>
+        <div class="lf-bar-track"><div class="lf-bar" style="width:80%;background:var(--sig);opacity:.8"></div></div>
+        <span class="lf-tag" style="color:var(--sig);border-color:var(--sig);background:rgba(194,82,26,.08)">Excellent</span>
+      </div>
+      <div class="lf-row reveal d4">
+        <span class="lf-score" style="color:var(--ult)">8.0 – 9.2</span>
+        <div class="lf-name-wrap"><div class="lf-dot" style="background:var(--ult)"></div><span class="lf-name" style="color:var(--ult)">Ultimate</span></div>
+        <span class="lf-desc">Attraction exceptionnelle. Parmi les meilleures au monde dans sa catégorie.</span>
+        <div class="lf-bar-track"><div class="lf-bar" style="width:92%;background:var(--ult);opacity:.9"></div></div>
+        <span class="lf-tag" style="color:var(--ult);border-color:var(--ult);background:rgba(192,57,43,.08)">Exceptionnel</span>
+      </div>
+      <div class="lf-row reveal d5" style="background:var(--vf);border-radius:10px;padding-left:12px;padding-right:12px;margin:4px -12px 0;">
+        <span class="lf-score" style="color:var(--leg)">9.2 – 10.0</span>
+        <div class="lf-name-wrap"><div class="lf-dot" style="background:var(--leg)"></div><span class="lf-name" style="color:var(--leg)">Legendary</span></div>
+        <span class="lf-desc">Référence mondiale absolue. Expérience irréprochable qui redéfinit le standard de sa catégorie.</span>
+        <div class="lf-bar-track"><div class="lf-bar" style="width:100%;background:var(--leg)"></div></div>
+        <span class="lf-tag" style="color:var(--leg);border-color:rgba(168,85,247,.35);background:rgba(168,85,247,.08)">Référence mondiale</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:.5px;background:#e0e0e0;"></div>
+
+<!-- BONUS BADGES -->
+<div style="background:#fff;">
+<div class="wrap-wide">
+  <div class="badges-section">
+    <span class="sec-eyebrow reveal">Badges bonus</span>
+    <h2 class="sec-h2 reveal d1"><span style="color:var(--v)">3 distinctions</span><br><em>exceptionnelles.</em></h2>
+    <p class="sec-lead reveal d2">Certaines attractions dépassent le cadre des 5 critères standard. Les badges bonus récompensent des qualités rares et objectives — chacun ajoute +0.5 au score final, cumulables jusqu'à +1.5, plafonné à 10.0.</p>
+
+    <div class="badges-grid">
+
+      <!-- RECORD BREAKER -->
+      <div class="badge-cell reveal" style="--bc:var(--rb);--bg-glow:rgba(226,183,20,.06)">
+        <div class="badge-icon">🏆</div>
+        <div class="badge-header">
+          <span class="badge-name" style="color:var(--rb)">Record Breaker</span>
+          <span class="badge-bonus" style="color:var(--rb);border-color:rgba(226,183,20,.35);background:rgba(226,183,20,.08)">+0.5</span>
+        </div>
+        <div class="badge-desc">Attribué à toute attraction détenant un record mondial ou continental officiel et vérifiable à la date de l'évaluation.</div>
+        <div class="badge-criteria" style="border-color:rgba(226,183,20,.15)">
+          <div class="badge-crit-title">Critères d'attribution</div>
+          <div class="bc-item">Record homologué (hauteur, vitesse, longueur, inversions…)</div>
+          <div class="bc-item">Source vérifiable : Guinness, RCDB, presse spécialisée</div>
+          <div class="bc-item">Record actif à la date d'évaluation</div>
+          <div class="bc-item">Continental ou mondial uniquement</div>
+        </div>
+        <div class="badge-rule" style="border-color:rgba(226,183,20,.12)">
+          <span class="badge-rule-icon">⚠️</span>
+          Retiré automatiquement si le record est battu avant la prochaine réévaluation annuelle.
+        </div>
+      </div>
+
+      <!-- THEME MASTER -->
+      <div class="badge-cell reveal d1" style="--bc:var(--tm);--bg-glow:rgba(14,165,233,.06)">
+        <div class="badge-icon">🎨</div>
+        <div class="badge-header">
+          <span class="badge-name" style="color:var(--tm)">Theme Master</span>
+          <span class="badge-bonus" style="color:var(--tm);border-color:rgba(14,165,233,.35);background:rgba(14,165,233,.08)">+0.5</span>
+        </div>
+        <div class="badge-desc">Réservé aux attractions dont le travail de theming atteint un niveau artistique et narratif exceptionnel, créant un monde cohérent et immersif à part entière.</div>
+        <div class="badge-criteria" style="border-color:rgba(14,165,233,.15)">
+          <div class="badge-crit-title">Critères d'attribution</div>
+          <div class="bc-item">Univers narratif complet et cohérent</div>
+          <div class="bc-item">Qualité artistique remarquable (décors, sons, odeurs…)</div>
+          <div class="bc-item">L'expérience existe en dehors du véhicule lui-même</div>
+          <div class="bc-item">Score Immersion ≥ 9.0 obligatoire</div>
+        </div>
+        <div class="badge-rule" style="border-color:rgba(14,165,233,.12)">
+          <span class="badge-rule-icon">ℹ️</span>
+          Non cumulable avec un score Immersion inférieur à 9.0, quelle que soit la qualité globale.
+        </div>
+      </div>
+
+      <!-- ELITE CREATOR -->
+      <div class="badge-cell reveal d2" style="--bc:var(--ec);--bg-glow:rgba(244,114,182,.06)">
+        <div class="badge-icon">💎</div>
+        <div class="badge-header">
+          <span class="badge-name" style="color:var(--ec)">Elite Creator</span>
+          <span class="badge-bonus" style="color:var(--ec);border-color:rgba(244,114,182,.35);background:rgba(244,114,182,.08)">+0.5</span>
+        </div>
+        <div class="badge-desc">Distingue les attractions qui ont introduit une innovation technologique ou conceptuelle mondiale — un concept qui n'existait pas avant elles et qui a inspiré l'industrie.</div>
+        <div class="badge-criteria" style="border-color:rgba(244,114,182,.15)">
+          <div class="badge-crit-title">Critères d'attribution</div>
+          <div class="bc-item">Innovation technique ou conceptuelle documentée</div>
+          <div class="bc-item">Première mondiale dans son type</div>
+          <div class="bc-item">A inspiré ou influencé d'autres attractions</div>
+          <div class="bc-item">Innovation toujours active et opérationnelle</div>
+        </div>
+        <div class="badge-rule" style="border-color:rgba(244,114,182,.12)">
+          <span class="badge-rule-icon">💡</span>
+          Badge permanent une fois attribué — l'innovation reste acquise même si copiée ailleurs.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Cumul rule -->
+    <div class="cumul-block reveal d3">
+      <span class="cumul-icon">📐</span>
+      <div class="cumul-text">
+        <strong style="color:#000;font-weight:800;">Règle de cumul :</strong> les 3 badges sont cumulables — une attraction peut obtenir jusqu'à <strong style="color:#000;">+1.5</strong> au total. Le score final est toujours plafonné à <strong style="color:#000;">10.0</strong>. Exemple : une attraction notée 9.2 avec Record Breaker + Elite Creator obtient <strong style="color:#000;">min(9.2 + 1.0, 10.0) = 10.0</strong> — score parfait.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="height:.5px;background:var(--line);"></div>
+
+<!-- PROCESS -->
+<div class="wrap-wide">
+  <div class="section">
+    <span class="sec-eyebrow reveal">Le processus</span>
+    <h2 class="sec-h2 reveal d1"><span style="color:var(--v)">De la visite</span><br><em>au label officiel.</em></h2>
+    <p class="sec-lead reveal d2">Chaque évaluation suit un processus en 4 étapes identiques, appliqué sans exception à toutes les attractions du monde.</p>
+    <div class="process-steps">
+      <div class="ps-cell reveal">
+        <span class="ps-num">ÉTAPE 01</span>
+        <div class="ps-title" style="color:#000;">Visite terrain</div>
+        <div class="ps-body">Chaque attraction est visitée en conditions réelles, à différentes périodes de l'année, à des heures variées pour capturer l'expérience dans toute sa diversité.</div>
+        <div class="ps-detail">
+          <div class="ps-item">Minimum 3 passages par attraction</div>
+          <div class="ps-item">Conditions : haute et basse saison</div>
+          <div class="ps-item">Évaluateur anonyme, sans accréditation</div>
+        </div>
+      </div>
+      <div class="ps-cell reveal d1">
+        <span class="ps-num">ÉTAPE 02</span>
+        <div class="ps-title" style="color:#000;">Notation des critères</div>
+        <div class="ps-body">Chacun des 5 critères est noté de 0 à 10 sur une grille standardisée. Les notes sont prises en temps réel, sans consultation préalable d'autres avis.</div>
+        <div class="ps-detail">
+          <div class="ps-item">Grille de notation propriétaire</div>
+          <div class="ps-item">Notes indépendantes par critère</div>
+          <div class="ps-item">Zéro influence externe</div>
+        </div>
+      </div>
+      <div class="ps-cell reveal d2">
+        <span class="ps-num">ÉTAPE 03</span>
+        <div class="ps-title" style="color:#000;">Calcul du Pulse Score</div>
+        <div class="ps-body">La formule officielle est appliquée automatiquement. Le score est calculé, arrondi au premier décimal et positionné dans son niveau Pulse.</div>
+        <div class="ps-detail">
+          <div class="ps-item">Formule pondérée officielle</div>
+          <div class="ps-item">Arrondi au premier décimal</div>
+          <div class="ps-item">Attribution automatique du niveau</div>
+        </div>
+      </div>
+      <div class="ps-cell reveal d3">
+        <span class="ps-num">ÉTAPE 04</span>
+        <div class="ps-title" style="color:#000;">Publication du Label</div>
+        <div class="ps-body">Le Pulse Label™ officiel est publié sur le site et devient la référence internationale. Les attractions sont réévaluées annuellement ou après toute modification majeure.</div>
+        <div class="ps-detail">
+          <div class="ps-item">Publication sur thepulselabel.com</div>
+          <div class="ps-item">Réévaluation annuelle obligatoire</div>
+          <div class="ps-item">Historique des scores conservé</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INDEPENDENCE -->
+<div style="background:#fff;">
+  <div class="indep-inner">
+    <div>
+      <span class="sec-eyebrow reveal">Indépendance</span>
+      <h2 class="sec-h2 reveal d1"><span style="color:#000;">Pourquoi nous faire</span><br><em><span style="color:var(--v)">confiance</span> ?</em></h2>
+      <p class="sec-lead reveal d2">Le Pulse Label™ n'est affilié à aucun parc, aucun opérateur, aucune régie publicitaire. Notre seul engagement est envers les visiteurs.</p>
+    </div>
+    <div class="indep-pillars reveal d2">
+      <div class="indep-row">
+        <div class="indep-icon">🚫</div>
+        <div><div class="indep-title">Zéro partenariat commercial</div><div class="indep-desc">Aucun parc ne peut acheter ou influencer un Pulse Score. Les évaluations sont menées sans accréditation ni invitation.</div></div>
+      </div>
+      <div class="indep-row">
+        <div class="indep-icon">📋</div>
+        <div><div class="indep-title">Méthode publique et documentée</div><div class="indep-desc">La formule, les critères et les pondérations sont publiés intégralement. N'importe qui peut vérifier et reproduire un score.</div></div>
+      </div>
+      <div class="indep-row">
+        <div class="indep-icon">🔄</div>
+        <div><div class="indep-title">Réévaluation systématique</div><div class="indep-desc">Chaque score est mis à jour chaque année. Un parc qui améliore son attraction verra son score progresser.</div></div>
+      </div>
+      <div class="indep-row">
+        <div class="indep-icon">🌍</div>
+        <div><div class="indep-title">Standard international unique</div><div class="indep-desc">La même méthode est appliquée de Disneyland Paris à Universal Orlando. Un score de 9.0 signifie la même chose partout dans le monde.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-sec" id="contact">
+  <div class="cta-light"></div>
+  <h2 class="reveal" style="color:#000;">Votre attraction mérite<br>d'être <span class="v">évaluée</span>.</h2>
+  <p class="reveal d1">Demandez l'évaluation officielle Pulse Label™ pour vos attractions et rejoignez la première norme internationale indépendante.</p>
+  <div class="cta-btns reveal d2">
+    <a href="mailto:contact@thepulselabel.com" class="btn-fill">Demander une évaluation</a>
+    <a href="explorer.html" class="btn-outline">Voir les classements →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-left">
+    <span class="ft-name">Pulse Label<span class="ft-tm">™</span></span>
+    <span class="ft-copy">© 2025 · Norme internationale · Tous droits réservés</span>
+  </div>
+  <div class="ft-dots">
+    <div class="fd" style="background:var(--dead)"></div>
+    <div class="fd" style="background:var(--rise)"></div>
+    <div class="fd" style="background:var(--spark)"></div>
+    <div class="fd" style="background:var(--sig)"></div>
+    <div class="fd" style="background:var(--ult)"></div>
+    <div class="fd" style="background:var(--leg)"></div>
+  </div>
+  <div class="ft-links">
+    <a href="../index.html">Accueil</a>
+    <a href="explorer.html">Explorer</a>
+    <a href="mailto:contact@thepulselabel.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.style.borderBottomColor = window.scrollY > 40 ? 'rgba(255,255,255,.06)' : 'var(--line)';
+});
+</script>
+</body>
+</html>
