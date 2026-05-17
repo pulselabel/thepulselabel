@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pulselabel.vercel.app/sitemap.xml
+Sitemap: https://thepulselabel.com/sitemap.xml

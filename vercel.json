@@ -12,7 +12,9 @@
     }
   ],
   "rewrites": [
-    { "source": "/methodologie", "destination": "/pages/methodologie.html" },
-    { "source": "/explorer",     "destination": "/pages/explorer.html" }
+    { "source": "/methodologie",      "destination": "/pages/methodologie.html" },
+    { "source": "/explorer",          "destination": "/pages/explorer.html" },
+    { "source": "/mentions-legales",  "destination": "/pages/mentions-legales.html" },
+    { "source": "/charte",            "destination": "/pages/charte.html" }
   ]
 }

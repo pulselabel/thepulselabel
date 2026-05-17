@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales — Pulse Label™</title>
+<meta name="description" content="Mentions légales du site Pulse Label™ : éditeur, hébergeur, propriété intellectuelle, données personnelles, cookies et responsabilité.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Mentions légales — Pulse Label™">
+<meta property="og:description" content="Informations légales du site Pulse Label™ conformément à la LCEN.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thepulselabel.com/mentions-legales">
+<link rel="canonical" href="https://thepulselabel.com/mentions-legales">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#f5f5f7;--bg1:#efefef;--bg2:#e8e8ec;
+  --line:#d8d8dc;--line2:#cccccc;--line3:#bbbbbb;
+  --text:#0a0a0a;--soft:#6e6e73;--dim:#888888;
+  --v:#a855f7;--vf:rgba(168,85,247,.06);
+  --dead:#48484a;--rise:#22c55e;--spark:#1d5fa8;
+  --sig:#c2521a;--ult:#c0392b;--leg:#a855f7;
+  --f-head:'Syne','Segoe UI',Arial,sans-serif;
+  --f-body:'Outfit','Segoe UI',Arial,sans-serif;
+  --f-mono:'DM Mono','Courier New',monospace;
+  --ease:cubic-bezier(.25,.1,.25,1);
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:52px;padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(0,0,0,.72);backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:.5px solid var(--line);transition:border-color .3s;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{
+  width:30px;height:30px;border-radius:8px;
+  background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.logo-text{font-family:var(--f-head);font-size:15px;font-weight:700;color:#fff;letter-spacing:.5px;}
+.logo-tm{font-family:var(--f-mono);font-size:9px;color:var(--v);vertical-align:super;margin-left:1px;font-weight:300;}
+.nav-links{display:flex;align-items:center;gap:0;}
+.nav-links a{font-size:12px;color:var(--soft);text-decoration:none;padding:0 16px;height:52px;display:flex;align-items:center;letter-spacing:.2px;transition:color .2s var(--ease);font-weight:400;}
+.nav-links a:hover,.nav-links a.active{color:#fff;}
+.nav-cta{background:var(--v)!important;color:#fff!important;padding:6px 16px!important;height:auto!important;border-radius:980px;font-size:12px!important;font-weight:600!important;margin-left:8px;transition:background .2s var(--ease)!important;}
+.nav-cta:hover{background:#9333ea!important;}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  padding:140px 40px 72px;text-align:center;
+  position:relative;overflow:hidden;
+  border-bottom:.5px solid var(--line);
+  background:#000;
+}
+.hero-light{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:1px;height:55%;
+  background:linear-gradient(180deg,transparent 0%,rgba(168,85,247,.45) 40%,rgba(168,85,247,.15) 80%,transparent 100%);
+  pointer-events:none;
+}
+.page-hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;}
+.page-eyebrow{
+  font-family:var(--f-mono);font-size:10px;font-weight:300;
+  color:var(--soft);letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:24px;display:block;
+}
+.page-h1{
+  font-family:var(--f-head);font-size:clamp(38px,5.5vw,68px);
+  font-weight:700;line-height:.95;letter-spacing:-1.8px;
+  color:#fff;margin-bottom:10px;
+}
+.page-h1 .v{color:var(--v);}
+.page-tm{font-family:var(--f-mono);font-size:10px;font-weight:300;color:var(--dim);letter-spacing:4px;text-transform:uppercase;margin-bottom:24px;}
+.page-sub{font-size:16px;font-weight:300;color:var(--soft);line-height:1.7;max-width:520px;margin:0 auto;}
+.page-meta{
+  font-family:var(--f-mono);font-size:10px;font-weight:300;color:var(--dim);
+  letter-spacing:2px;text-transform:uppercase;margin-top:24px;
+}
+
+/* ── LAYOUT ── */
+.wrap{max-width:820px;margin:0 auto;padding:0 40px;}
+.rule{height:.5px;background:var(--line);}
+
+/* ── INTRO ── */
+.intro-block{
+  background:#fff;padding:64px 0;
+}
+.intro-block .lead{
+  font-size:16px;font-weight:300;color:#3a3a3a;line-height:1.75;
+  border-left:2px solid var(--v);padding-left:24px;
+}
+
+/* ── LEGAL ── */
+.legal-section{
+  padding:56px 0;border-bottom:.5px solid var(--line);
+}
+.legal-section:last-of-type{border-bottom:none;}
+.legal-num{
+  font-family:var(--f-mono);font-size:11px;font-weight:400;
+  color:var(--v);letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:14px;display:block;
+}
+.legal-h2{
+  font-family:var(--f-head);font-size:clamp(22px,2.6vw,30px);
+  font-weight:700;color:#000;line-height:1.15;
+  letter-spacing:-.6px;margin-bottom:22px;
+}
+.legal-h3{
+  font-family:var(--f-head);font-size:15px;font-weight:600;
+  color:#000;letter-spacing:-.2px;margin:24px 0 10px;
+}
+.legal-p{
+  font-size:15px;font-weight:300;color:#2a2a2a;line-height:1.75;
+  margin-bottom:14px;letter-spacing:-.05px;
+}
+.legal-p:last-child{margin-bottom:0;}
+.legal-p strong{font-weight:500;color:#000;}
+.legal-p a{color:var(--v);text-decoration:none;border-bottom:1px solid rgba(168,85,247,.3);transition:border-color .2s;}
+.legal-p a:hover{border-bottom-color:var(--v);}
+
+/* ── INFO CARD (éditeur / hébergeur) ── */
+.info-card{
+  background:#fff;border:.5px solid var(--line);border-radius:14px;
+  padding:24px 28px;margin:18px 0;
+}
+.info-row{
+  display:flex;align-items:baseline;gap:16px;
+  padding:10px 0;border-bottom:.5px dashed var(--line);
+}
+.info-row:last-child{border-bottom:none;}
+.info-label{
+  font-family:var(--f-mono);font-size:10px;font-weight:400;
+  color:var(--soft);letter-spacing:2px;text-transform:uppercase;
+  min-width:120px;flex-shrink:0;
+}
+.info-value{
+  font-size:14px;font-weight:400;color:#0a0a0a;
+}
+.info-value a{color:var(--v);text-decoration:none;border-bottom:1px solid rgba(168,85,247,.3);}
+.info-value a:hover{border-bottom-color:var(--v);}
+
+/* ── BACK LINK ── */
+.back-bar{padding:36px 0 88px;text-align:center;}
+.back-link{
+  font-family:var(--f-mono);font-size:11px;font-weight:400;
+  color:var(--v);letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;padding:12px 24px;border-radius:980px;
+  border:.5px solid rgba(168,85,247,.35);
+  transition:all .2s var(--ease);display:inline-block;
+}
+.back-link:hover{background:var(--vf);border-color:var(--v);}
+
+/* ── FOOTER ── */
+footer{
+  border-top:.5px solid var(--line);padding:32px 40px;background:var(--bg1);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.ft-left{display:flex;align-items:center;gap:20px;}
+.ft-name{font-family:var(--f-head);font-size:13px;font-weight:600;color:#000;letter-spacing:.5px;}
+.ft-tm{font-family:var(--f-mono);font-size:8px;color:var(--v);vertical-align:super;}
+.ft-copy{font-size:12px;font-weight:300;color:var(--soft);}
+.ft-dots{display:flex;gap:5px;align-items:center;}
+.fd{width:6px;height:6px;border-radius:50%;}
+.ft-links{display:flex;gap:24px;flex-wrap:wrap;}
+.ft-links a{font-size:12px;font-weight:300;color:var(--soft);text-decoration:none;transition:color .2s;}
+.ft-links a:hover{color:var(--text);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 20px;height:48px;}
+  .nav-links{display:none;}
+  .page-hero{padding:96px 20px 52px;}
+  .wrap{padding:0 20px;}
+  .legal-section{padding:40px 0;}
+  .legal-h2{font-size:22px;}
+  .legal-p{font-size:14px;}
+  .info-card{padding:18px 20px;}
+  .info-row{flex-direction:column;gap:4px;}
+  .info-label{min-width:0;}
+  footer{padding:24px 20px;flex-direction:column;text-align:center;gap:14px;}
+  .ft-left{flex-direction:column;gap:6px;align-items:center;}
+  .ft-links{justify-content:center;gap:14px;}
+  .ft-dots{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../index.html" class="logo">
+    <div class="logo-mark">
+      <svg width="20" height="13" viewBox="0 0 260 180" fill="none">
+        <path d="M20 128 C30 128 38 118 50 100 C60 84 68 64 80 44 C90 28 100 18 114 14 C128 10 140 18 152 34 C164 50 170 76 176 104 C180 118 184 128 196 128" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="20" y1="140" x2="196" y2="140" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity=".35"/>
+        <circle cx="72"  cy="152" r="10" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+        <circle cx="108" cy="152" r="10" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+        <circle cx="144" cy="152" r="10" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+        <circle cx="114" cy="14" r="7" fill="#ffffff"/>
+      </svg>
+    </div>
+    <span class="logo-text">Pulse Label<span class="logo-tm">™</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html#system">Système</a>
+    <a href="methodologie.html">Méthodologie</a>
+    <a href="explorer.html">Explorer</a>
+    <a href="mailto:contact@thepulselabel.com" target="_blank" class="nav-cta">Évaluer un parc</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="hero-light"></div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow reveal">Informations légales</span>
+    <h1 class="page-h1 reveal d1"><span style="color:#fff;">Mentions</span> <span class="v">légales.</span></h1>
+    <div class="page-tm reveal d2">Pulse Label™ · Conformité LCEN</div>
+    <p class="page-sub reveal d3">Informations relatives à l'éditeur, à l'hébergeur et aux conditions juridiques d'utilisation du site Pulse&nbsp;Label.</p>
+    <div class="page-meta reveal d3">Dernière mise à jour · 12 mai 2026</div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-block">
+  <div class="wrap">
+    <p class="lead reveal">Conformément aux dispositions des articles 6-III et 19 de la loi n°&nbsp;2004-575 du 21&nbsp;juin&nbsp;2004 pour la confiance dans l'économie numérique (LCEN), il est précisé aux utilisateurs du site <strong>thepulselabel.com</strong> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- LEGAL SECTIONS -->
+<div class="wrap">
+
+  <section class="legal-section">
+    <span class="legal-num">01 — Éditeur du site</span>
+    <h2 class="legal-h2">Édition à titre personnel et non&nbsp;professionnel.</h2>
+    <p class="legal-p">Le site <strong>thepulselabel.com</strong> (ci-après « le&nbsp;Site ») est édité à titre personnel et non professionnel par&nbsp;:</p>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Pseudonyme</span>
+        <span class="info-value">Elykeuch</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Contact</span>
+        <span class="info-value"><a href="mailto:contact@thepulselabel.com">contact@thepulselabel.com</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Statut</span>
+        <span class="info-value">Éditeur non professionnel · publication non commerciale</span>
+      </div>
+    </div>
+    <p class="legal-p">Conformément à l'article 6-III-2 de la loi pour la confiance dans l'économie numérique, l'éditeur, en sa qualité de personne physique éditant un service de communication au public en ligne à titre non professionnel, a choisi de préserver son anonymat vis-à-vis du public.</p>
+    <p class="legal-p">Son identité civile, son adresse et ses coordonnées ont été communiquées à l'hébergeur du Site, qui les conservera dans les conditions prévues par la loi et pourra les transmettre aux autorités judiciaires sur réquisition.</p>
+  </section>
+
+  <section class="legal-section">
+    <span class="legal-num">02 — Directeur de la publication</span>
+    <h2 class="legal-h2">Responsabilité&nbsp;éditoriale.</h2>
+    <p class="legal-p">Le directeur de la publication, au sens de l'article 93-2 de la loi n°&nbsp;82-652 du 29&nbsp;juillet&nbsp;1982, est l'éditeur du Site, identifié sous le pseudonyme <strong>Elykeuch</strong>.</p>
+  </section>
+
+  <section class="legal-section">
+    <span class="legal-num">03 — Hébergeur</span>
+    <h2 class="legal-h2">Le Site est hébergé&nbsp;par&nbsp;:</h2>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Société</span>
+        <span class="info-value">Vercel Inc.</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Adresse</span>
+        <span class="info-value">340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Site web</span>
+        <span class="info-value"><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Contact</span>
+        <span class="info-value"><a href="https://vercel.com/contact" target="_blank" rel="noopener">vercel.com/contact</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <span class="legal-num">04 — Propriété intellectuelle</span>
+    <h2 class="legal-h2">Tous les contenus sont protégés.</h2>
+    <p class="legal-p">L'ensemble des contenus présents sur le Site (textes, images, logos, méthodologie, base de données, visuels du Label, marques <strong>Pulse&nbsp;Label™</strong> et <strong>Pulse&nbsp;Score™</strong>, structure et code source) est protégé par le droit d'auteur, le droit des marques et le droit des producteurs de bases de données.</p>
+    <p class="legal-p">Toute reproduction, représentation, modification, publication, adaptation ou exploitation, totale ou partielle, des éléments du Site, par quelque procédé que ce soit, est interdite sans l'autorisation écrite préalable de l'éditeur, sous réserve des conditions d'utilisation prévues par la <a href="charte.html">Charte juridique d'utilisation du Pulse&nbsp;Score™</a>, accessible depuis le Site.</p>
+    <p class="legal-p">Toute exploitation non autorisée du Site ou de l'un quelconque des éléments qu'il contient est constitutive d'une contrefaçon et passible des sanctions prévues aux articles L.335-2 et suivants et L.716-9 et suivants du Code de la propriété intellectuelle.</p>
+  </section>
+
+  <section class="legal-section">
+    <span class="legal-num">05 — Données personnelles</span>
+    <h2 class="legal-h2">Vos données vous appartiennent.</h2>
+    <p class="legal-p">Le Site ne collecte pas de données personnelles à l'insu de l'utilisateur.</p>
+    <p class="legal-p">Les données éventuellement transmises via le formulaire de contact (nom, adresse e-mail, message) sont utilisées exclusivement pour répondre aux sollicitations de l'utilisateur et ne sont en aucun cas cédées à des tiers.</p>
+    <p class="legal-p">Conformément au Règlement général sur la protection des données (RGPD, règlement UE 2016/679) et à la loi « Informatique et Libertés » du 6&nbsp;janvier&nbsp;1978 modifiée, l'utilisateur dispose d'un <strong>droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité</strong> concernant ses données personnelles.</p>
+    <p class="legal-p">Ces droits peuvent être exercés via la page Contact du Site.</p>
+    <p class="legal-p">L'utilisateur dispose également du droit d'introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.</p>
+  </section>
+
+  <section class="legal-section">
+    <span class="legal-num">06 — Cookies et traceurs</span>
+    <h2 class="legal-h2">Aucun traçage publicitaire.</h2>
+    <p class="legal-p">Le Site est susceptible d'utiliser des cookies strictement nécessaires à son fonctionnement et, le cas échéant, des cookies de mesure d'audience anonymisée.</p>
+    <p class="legal-p">Aucun cookie publicitaire ou de profilage n'est déposé sans le consentement explicite de l'utilisateur. Ce consentement peut être retiré à tout moment via les paramètres du navigateur ou, lorsque disponible, via le bandeau de gestion des cookies du Site.</p>
+  </section>
+
+  <section class="legal-section">
+    <span class="legal-num">07 — Responsabilité</span>
+    <h2 class="legal-h2">Information à titre indicatif.</h2>
+    <p class="legal-p">L'éditeur s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur le Site. Toutefois, il ne saurait garantir l'exhaustivité, la précision ou l'actualité absolue des contenus et décline toute responsabilité quant aux conséquences directes ou indirectes pouvant résulter de leur utilisation.</p>
+    <p class="legal-p">Le Pulse Score et l'ensemble des informations publiées sont diffusés à titre informatif et <strong>ne constituent ni un conseil, ni une recommandation, ni une certification officielle</strong>.</p>
+    <p class="legal-p">Les liens hypertextes éventuellement présents sur le Site vers d'autres sites n'engagent en aucun cas la responsabilité de l'éditeur quant au contenu de ces sites.</p>
+  </section>
+
+  <section class="legal-section">
+    <span class="legal-num">08 — Droit applicable</span>
+    <h2 class="legal-h2">Droit français.</h2>
+    <p class="legal-p">Les présentes mentions légales sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
+  </section>
+
+  <section class="legal-section">
+    <span class="legal-num">09 — Contact</span>
+    <h2 class="legal-h2">Une question ?</h2>
+    <p class="legal-p">Pour toute question relative au Site, à ses contenus ou aux présentes mentions légales, vous pouvez nous contacter via&nbsp;: <a href="mailto:contact@thepulselabel.com">contact@thepulselabel.com</a>.</p>
+  </section>
+
+  <div class="back-bar">
+    <a href="../index.html" class="back-link">← Retour à l'accueil</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-left">
+    <span class="ft-name">Pulse Label<span class="ft-tm">™</span></span>
+    <span class="ft-copy">© 2025–2026 · Norme internationale · Tous droits réservés</span>
+  </div>
+  <div class="ft-dots">
+    <div class="fd" style="background:var(--dead)"></div>
+    <div class="fd" style="background:var(--rise)"></div>
+    <div class="fd" style="background:var(--spark)"></div>
+    <div class="fd" style="background:var(--sig)"></div>
+    <div class="fd" style="background:var(--ult)"></div>
+    <div class="fd" style="background:var(--leg)"></div>
+  </div>
+  <div class="ft-links">
+    <a href="../index.html">Accueil</a>
+    <a href="methodologie.html">Méthodologie</a>
+    <a href="explorer.html">Explorer</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+    <a href="charte.html">Charte juridique</a>
+    <a href="mailto:contact@thepulselabel.com" target="_blank">Contact</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal, .legal-section').forEach(el => { el.classList.add('reveal'); obs.observe(el); });
+</script>
+</body>
+</html>
