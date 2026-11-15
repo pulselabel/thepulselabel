@@ -1,20 +1,54 @@
 {
-  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
       ]
     }
   ],
-  "rewrites": [
-    { "source": "/methodologie",      "destination": "/pages/methodologie.html" },
-    { "source": "/explorer",          "destination": "/pages/explorer.html" },
-    { "source": "/mentions-legales",  "destination": "/pages/mentions-legales.html" },
-    { "source": "/charte",            "destination": "/pages/charte.html" }
+  "redirects": [
+    {
+      "source": "/explorer",
+      "destination": "/classement",
+      "permanent": true
+    },
+    {
+      "source": "/pages/explorer",
+      "destination": "/classement",
+      "permanent": true
+    },
+    {
+      "source": "/pages/:page",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/en/:path*",
+      "destination": "/",
+      "permanent": false
+    }
   ]
 }

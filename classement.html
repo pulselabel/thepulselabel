@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Classement mondial des attractions — Pulse Label</title>
+<meta name="description" content="Classement mondial des attractions par Pulse Label : Pulse Score Attraction, note des visiteurs, filtres par type, parc et zone géographique.">
+<meta name="theme-color" content="#17141F">
+<link rel="canonical" href="https://thepulselabel.com/classement">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pulse Label">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Classement mondial des attractions — Pulse Label">
+<meta property="og:description" content="Classement mondial des attractions par Pulse Label : Pulse Score Attraction, note des visiteurs, filtres par type, parc et zone géographique.">
+<meta property="og:url" content="https://thepulselabel.com/classement">
+<meta property="og:image" content="https://thepulselabel.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pulse Label, Every attraction has a score.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=syne:500,600,700%7Coutfit:300,400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/classement.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Accueil","item":"https://thepulselabel.com/"},
+ {"@type":"ListItem","position":2,"name":"Classement","item":"https://thepulselabel.com/classement"}]}
+</script>
+</head>
+<body data-root="./" data-page="classement">
+
+<header id="site-header">
+  <nav aria-label="Navigation principale"><a href="index.html">Pulse Label</a> · <a href="classement.html">Classement</a> · <a href="methodologie.html">Méthode</a> · <a href="contact.html">Contact</a></nav>
+</header>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/layout.js"></script>
+
+<nav class="pl-crumbs pl-wrap" aria-label="Fil d’Ariane">
+  <ol><li><a href="index.html">Accueil</a></li><li><span aria-current="page">Classement</span></li></ol>
+</nav>
+
+<main id="contenu">
+  <section class="wrap rk-head">
+    <h1 class="h-page">Classement mondial des attractions</h1>
+    <p class="lead">Chaque attraction affiche deux notes : le Pulse Score Attraction, donné par notre évaluateur, et la moyenne des notes des visiteurs.</p>
+    <details class="guide">
+      <summary>Comment lire ce classement</summary>
+      <dl>
+        <div><dt>Rang</dt><dd>Position de l’attraction selon son Pulse Score Attraction. Deux notes égales partagent le même rang.</dd></div>
+        <div><dt>Pulse Score Attraction</dt><dd>Avis de Pulse Label, de 0 à 20, établi selon notre <a href="methodologie.html">méthode</a> à la date indiquée. Le Tier (Legendary, Ultimate…) découle de cette note.</dd></div>
+        <div><dt>Note visiteurs</dt><dd>Moyenne des notes de 0 à 20 données par les internautes, avec le nombre d’avis. Elle ne modifie jamais le Pulse Score Attraction.</dd></div>
+        <div><dt>Filtres</dt><dd>Choisissez un type, une zone ou un parc ; le tri change l’ordre d’affichage, pas le rang.</dd></div>
+      </dl>
+    </details>
+    <div class="rk-stats" id="stats" aria-live="polite"></div>
+    <p class="demo-note" id="demo-note" hidden>
+      Données de démonstration. Renseignez votre URL et votre clé publique Supabase dans
+      <code>assets/js/config.js</code> pour afficher votre classement.
+    </p>
+  </section>
+
+  <div class="rk-tools">
+    <div class="wrap">
+      <div class="rk-tools-row">
+        <div class="field search">
+          <label for="q">Rechercher</label>
+          <input id="q" type="search" placeholder="Attraction, parc, constructeur…" autocomplete="off" enterkeyhint="search">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5.2" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <!-- Bouton visible sur mobile uniquement : déplie les filtres -->
+        <button type="button" class="filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters-panel">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M4.5 8h7M7 12h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Filtres<span class="filters-count" id="filters-count"></span>
+        </button>
+        <div class="filters-panel" id="filters-panel">
+          <div class="field">
+            <label for="zone">Zone géographique</label>
+            <select id="zone"></select>
+          </div>
+          <div class="field">
+            <label for="park">Parc</label>
+            <select id="park"></select>
+          </div>
+          <div class="field sort">
+            <label for="sort">Trier par</label>
+            <select id="sort">
+              <option value="rank">Pulse Score Attraction</option>
+              <option value="visitor">Note des visiteurs</option>
+              <option value="year">Plus récentes</option>
+              <option value="name">Nom (A à Z)</option>
+            </select>
+          </div>
+          <div class="chips" id="types" role="group" aria-label="Type d’attraction"></div>
+          <button type="button" class="btn btn-primary filters-apply" id="filters-apply">Voir les résultats</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="wrap" aria-label="Résultats">
+    <div class="rk-summary">
+      <span id="summary-count" aria-live="polite"></span>
+      <button type="button" class="linkish" id="reset" hidden>Retirer les filtres</button>
+    </div>
+    <ol class="rk-list" id="list"></ol>
+    <div class="more" id="more" hidden><button type="button" class="btn btn-outline" id="more-btn">Afficher plus</button></div>
+  </section>
+</main>
+
+<!-- Fenêtre de notation visiteur -->
+<dialog class="rate-dialog" id="rate-dialog" aria-labelledby="rate-name">
+  <form method="dialog">
+    <button type="button" class="close" id="rate-close" aria-label="Fermer">×</button>
+    <h2 id="rate-name"></h2>
+    <p class="park" id="rate-park"></p>
+    <fieldset>
+      <legend>Votre note, de 0 à 20</legend>
+      <div class="notes" id="notes"></div>
+      <div class="scale-hint"><span>0, décevante</span><span>20, inoubliable</span></div>
+    </fieldset>
+    <p class="err" id="rate-err" role="alert"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-outline" id="rate-cancel">Annuler</button>
+      <button type="submit" class="btn btn-primary" id="rate-save">Enregistrer</button>
+    </div>
+    <p class="fine">Une note par attraction et par appareil, modifiable à tout moment. Notez uniquement une attraction que vous avez faite. La note visiteurs est la moyenne de toutes les notes reçues. <a href="charte.html#notes-visiteurs">Règles de vote</a></p>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<footer id="site-footer">
+  <p><a href="mentions-legales.html">Mentions légales</a> · <a href="charte.html">Charte juridique</a> · <a href="contact.html">Contact</a></p>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/demo-data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/classement.js"></script>
+</body>
+</html>

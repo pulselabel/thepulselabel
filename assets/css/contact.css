@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Pulse Label — contact.css (page Contact)
+   ========================================================================== */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 72px; padding-top: 48px; align-items: start; }
+.c-facts { margin-top: 36px; border-top: 1px solid var(--line); }
+.c-facts div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.c-facts dt { font-size: 12px; color: var(--ink-3); }
+.c-facts dd { font-size: var(--s-sm); margin-top: 2px; }
+.c-facts a { color: var(--violet); text-decoration: none; }
+.c-facts a:hover { text-decoration: underline; }
+
+.c-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px; display: grid; gap: 20px; }
+.row.two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.f { display: grid; gap: 6px; }
+.f label { font-size: var(--s-sm); font-weight: 500; }
+.f input[type=text], .f input[type=email], .f select, .f textarea {
+  width: 100%; border: 1px solid var(--line-2); border-radius: 10px; background: var(--paper);
+  padding: 12px 14px; font-size: 16px; /* 16px : évite le zoom automatique sur iPhone */
+  outline: none; transition: border-color .15s, background .15s;
+}
+.f input:focus, .f select:focus, .f textarea:focus { border-color: var(--violet); background: var(--surface); }
+.f select { appearance: none; -webkit-appearance: none; padding-right: 40px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2 4.5l4 4 4-4' stroke='%239A95A6' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; }
+.f textarea { resize: vertical; min-height: 160px; line-height: 1.55; }
+.f [aria-invalid="true"] { border-color: var(--lv-ultimate); }
+.meta { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--ink-3); }
+.err { color: var(--lv-ultimate); font-size: 13px; min-height: 0; }
+.err:empty { display: none; }
+.hint { font-size: 13px; color: var(--ink-2); }
+.hint:empty { display: none; }
+.check { grid-template-columns: 22px 1fr; align-items: start; gap: 12px; }
+.check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--violet); }
+.check label { font-weight: 400; font-size: 14px; color: var(--ink-2); }
+.check a { color: var(--violet); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.actions .btn { min-width: 220px; }
+.actions .btn[disabled] { opacity: .6; cursor: wait; }
+.status { font-size: var(--s-sm); color: var(--ink-2); }
+.status:empty { display: none; }
+.status.bad { color: var(--lv-ultimate); }
+.c-done { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 40px 32px; }
+.c-done .btn { margin-top: 24px; }
+
+@media (max-width: 900px) {
+  .contact { grid-template-columns: 1fr; gap: 36px; padding-top: 32px; }
+}
+@media (max-width: 560px) {
+  .c-form { padding: 22px 18px; border-radius: var(--radius-md); }
+  .row.two { grid-template-columns: 1fr; }
+  .actions .btn { width: 100%; }
+}
