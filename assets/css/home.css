@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Pulse Label — home.css (page d'accueil)
+   ========================================================================== */
+
+/* ── Présentation ── */
+.hero { position: relative; overflow: hidden; padding: 96px 0 88px; }
+.hero-track { position: absolute; right: -2%; top: 64px; width: min(560px, 52vw); height: auto; pointer-events: none; z-index: 0; }
+.hero-track path { stroke: var(--violet-brand); stroke-width: .8; fill: none; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.4s var(--ease) .2s forwards; opacity: .7; }
+.hero-track .ties { stroke: var(--line-2); stroke-width: .5; stroke-dasharray: none; stroke-dashoffset: 0; animation: none; opacity: 1; }
+.hero-track .car { fill: var(--violet-brand); opacity: 0; animation: appear .4s ease 2.4s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes appear { to { opacity: 1; } }
+
+.hero-inner { position: relative; z-index: 1; }
+.hero-kicker { font-size: var(--s-sm); color: var(--ink-2); margin-bottom: 22px; }
+.hero-title {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: clamp(46px, 8vw, 104px); line-height: .98; letter-spacing: -.035em; max-width: 10ch;
+}
+.hero .lead { margin-top: 30px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+/* ── En bref ── */
+.brief { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 8px; padding-bottom: 24px; }
+.brief div { border-top: 1px solid var(--ink); padding-top: 18px; }
+.brief h2 { font-size: var(--s-md); font-weight: 600; }
+.brief p { color: var(--ink-2); font-size: var(--s-sm); margin-top: 6px; max-width: 34ch; }
+
+/* ── Tiers ── */
+.levels { padding-top: 96px; }
+.level-list { list-style: none; margin-top: 32px; border-top: 1px solid var(--line); }
+.level-list li { display: grid; grid-template-columns: 180px 110px 1fr; gap: 24px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.level-list b { font-family: var(--f-display); font-weight: 600; font-size: 18px; display: flex; align-items: center; gap: 12px; }
+.level-list b::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--c); flex-shrink: 0; }
+.level-list .range { color: var(--ink-3); font-size: var(--s-sm); font-variant-numeric: tabular-nums; }
+.level-list .meaning { color: var(--ink-2); font-size: var(--s-sm); }
+
+/* ── Top 14 ── */
+.top { padding-top: 104px; }
+.section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 18px 32px; margin-bottom: 28px; }
+.section-head .lead { margin-top: 10px; }
+.top-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 56px; border-top: 1px solid var(--line); }
+.top-item a { display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.top-rank { font-family: var(--f-display); font-weight: 500; font-size: 26px; line-height: 1; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.top-item:nth-child(-n+3) .top-rank { color: var(--violet); }
+.top-name { display: block; font-weight: 500; font-size: 17px; line-height: 1.3; transition: color .15s; }
+.top-item a:hover .top-name { color: var(--violet); }
+.top-park { display: block; font-size: var(--s-xs); color: var(--ink-2); margin-top: 3px; }
+.top-type { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.top-item.pending .top-name { color: var(--ink-3); font-weight: 400; }
+.top-note { font-size: var(--s-xs); color: var(--ink-3); margin-top: 18px; }
+
+/* ── Suite ── */
+.next { padding-top: 104px; }
+.next-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 1px solid var(--line); padding-top: 36px; }
+.next-grid h2 { font-family: var(--f-display); font-weight: 600; font-size: 22px; letter-spacing: -.01em; }
+.next-grid p { color: var(--ink-2); margin: 8px 0 16px; max-width: 42ch; }
+
+@media (max-width: 900px) {
+  .top-list { grid-template-columns: 1fr; }
+  .level-list li { grid-template-columns: 150px 1fr; gap: 4px 16px; }
+  .level-list .meaning { grid-column: 1 / -1; padding-left: 21px; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 56px 0 56px; }
+  .hero-track { right: -22%; top: 16px; width: 100vw; opacity: .45; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .brief { grid-template-columns: 1fr; gap: 24px; }
+  .levels, .top, .next { padding-top: 72px; }
+  .top-item a { grid-template-columns: 40px 1fr; gap: 12px; }
+  .top-type { grid-column: 2; margin-top: -6px; }
+  .top-rank { font-size: 22px; }
+  .next-grid { grid-template-columns: 1fr; gap: 32px; }
+}

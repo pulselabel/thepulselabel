@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Pulse Label — methode.css (page Méthode)
+   ========================================================================== */
+.m-head { padding-top: 72px; padding-bottom: 8px; }
+.m-head .h-page { max-width: 16ch; }
+
+.m-sec { padding-top: 88px; }
+.m-sec > .lead { margin-bottom: 28px; }
+
+/* Sommaire de page */
+.m-toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+.m-toc a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--ink-2); text-decoration: none; border: 1px solid var(--line-2); border-radius: 999px; padding: 0 16px; }
+.m-toc a:hover { color: var(--ink); border-color: var(--ink); }
+
+/* Est / n'est pas */
+.isnot { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 8px; }
+.isnot div { border-top: 1px solid var(--ink); padding-top: 18px; }
+.isnot div.no { border-top-color: var(--line-2); }
+.isnot h3 { font-size: var(--s-md); font-weight: 600; margin-bottom: 10px; }
+.isnot ul { list-style: none; display: grid; gap: 8px; }
+.isnot li { color: var(--ink-2); font-size: var(--s-sm); padding-left: 20px; position: relative; }
+.isnot li::before { content: ''; position: absolute; left: 0; top: .7em; width: 10px; height: 1px; background: currentColor; }
+
+/* Tableau des critères */
+.table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.m-table { width: 100%; border-collapse: collapse; min-width: 520px; }
+.m-table th { text-align: left; font-size: 12px; font-weight: 500; color: var(--ink-3); padding: 0 16px 10px 0; border-bottom: 1px solid var(--ink); }
+.m-table td { padding: 18px 16px 18px 0; border-bottom: 1px solid var(--line); vertical-align: top; font-size: var(--s-sm); color: var(--ink-2); }
+.m-table td:first-child { color: var(--ink); font-weight: 500; font-size: var(--s-md); white-space: nowrap; }
+.m-table td.w { text-align: right; padding-right: 0; font-family: var(--f-display); font-weight: 500; font-size: 20px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.m-table th.w { text-align: right; padding-right: 0; }
+
+/* Formule */
+.formula { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px; }
+.formula code {
+  display: block; font-family: var(--f-display); font-weight: 500; font-size: clamp(15px, 2vw, 19px);
+  line-height: 1.7; color: var(--ink); white-space: normal;
+}
+.formula code em { font-style: normal; color: var(--violet); }
+.formula p { color: var(--ink-2); font-size: var(--s-sm); margin-top: 14px; max-width: 70ch; }
+.example { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); font-size: var(--s-sm); color: var(--ink-2); }
+.example b { color: var(--ink); font-weight: 600; }
+
+/* Tiers */
+.level-list { list-style: none; border-top: 1px solid var(--line); }
+.level-list li { display: grid; grid-template-columns: 180px 110px 1fr; gap: 24px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.level-list b { font-family: var(--f-display); font-weight: 600; font-size: 18px; display: flex; align-items: center; gap: 12px; }
+.level-list b::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--c); flex-shrink: 0; }
+.level-list .range { color: var(--ink-3); font-size: var(--s-sm); font-variant-numeric: tabular-nums; }
+.level-list .meaning { color: var(--ink-2); font-size: var(--s-sm); }
+
+/* Badges */
+.badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.badge { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 22px; }
+.badge h3 { font-family: var(--f-display); font-weight: 600; font-size: 19px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.badge h3 span { font-family: var(--f-body); font-size: 14px; font-weight: 500; color: var(--violet); }
+.badge p { color: var(--ink-2); font-size: var(--s-sm); margin-top: 8px; }
+.badge ul { margin-top: 12px; padding-left: 18px; display: grid; gap: 4px; }
+.badge li { color: var(--ink-2); font-size: 14px; }
+.badge .rule { font-size: 13px; color: var(--ink-3); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.cumul { margin-top: 16px; font-size: var(--s-sm); color: var(--ink-2); }
+
+/* Étapes (vraie séquence : numérotation justifiée) */
+.steps { list-style: none; counter-reset: step; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.steps li::before { content: counter(step); font-family: var(--f-display); font-weight: 500; font-size: 26px; line-height: 1.1; color: var(--violet); }
+.steps h3 { font-size: var(--s-md); font-weight: 600; }
+.steps p { color: var(--ink-2); font-size: var(--s-sm); margin-top: 4px; max-width: 68ch; }
+
+/* Indépendance et réserves */
+.pledges { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
+.pledges h3 { font-size: var(--s-md); font-weight: 600; }
+.pledges p { color: var(--ink-2); font-size: var(--s-sm); margin-top: 6px; }
+.notice { margin-top: 8px; background: var(--surface); border: 1px solid var(--line); border-left: 2px solid var(--ink); border-radius: var(--radius-sm); padding: 22px 24px; }
+.notice p { color: var(--ink-2); font-size: var(--s-sm); }
+.notice p + p { margin-top: 10px; }
+.notice strong { color: var(--ink); font-weight: 600; }
+.notice a { color: var(--violet); }
+
+.m-cta { margin-top: 88px; border-top: 1px solid var(--line); padding-top: 40px; display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between; }
+.m-cta p { color: var(--ink-2); font-size: var(--s-sm); max-width: 56ch; margin-top: 6px; }
+.m-cta .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 900px) {
+  .badges { grid-template-columns: 1fr; }
+  .level-list li { grid-template-columns: 150px 1fr; gap: 4px 16px; }
+  .level-list .meaning { grid-column: 1 / -1; padding-left: 21px; }
+}
+@media (max-width: 640px) {
+  .m-head { padding-top: 44px; }
+  .m-sec { padding-top: 64px; }
+  .isnot, .pledges { grid-template-columns: 1fr; gap: 24px; }
+  .formula { padding: 20px; }
+  .steps li { grid-template-columns: 36px 1fr; }
+  .m-table { min-width: 0; }
+  .m-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .m-table tbody { border-top: 1px solid var(--ink); display: block; }
+  .m-table tr { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .m-table td { padding: 0; border: 0; }
+  .m-table td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+  .m-cta .actions .btn { flex: 1 1 100%; }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact — Pulse Label</title>
+<meta name="description" content="Écrire à Pulse Label : une question, une attraction à proposer, une correction de fiche ou une demande presse.">
+<meta name="theme-color" content="#17141F">
+<link rel="canonical" href="https://thepulselabel.com/contact">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pulse Label">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Contact — Pulse Label">
+<meta property="og:description" content="Écrire à Pulse Label : une question, une attraction à proposer, une correction de fiche ou une demande presse.">
+<meta property="og:url" content="https://thepulselabel.com/contact">
+<meta property="og:image" content="https://thepulselabel.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pulse Label, Every attraction has a score.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=syne:500,600,700%7Coutfit:300,400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/contact.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Accueil","item":"https://thepulselabel.com/"},
+ {"@type":"ListItem","position":2,"name":"Contact","item":"https://thepulselabel.com/contact"}]}
+</script>
+</head>
+<body data-root="./" data-page="contact">
+
+<header id="site-header">
+  <nav aria-label="Navigation principale"><a href="index.html">Pulse Label</a> · <a href="classement.html">Classement</a> · <a href="methodologie.html">Méthode</a> · <a href="contact.html">Contact</a></nav>
+</header>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/layout.js"></script>
+
+<nav class="pl-crumbs pl-wrap" aria-label="Fil d’Ariane">
+  <ol><li><a href="index.html">Accueil</a></li><li><span aria-current="page">Contact</span></li></ol>
+</nav>
+
+<main id="contenu" class="wrap contact">
+  <div class="c-intro">
+    <h1 class="h-page">Contact</h1>
+    <p class="lead">Une question sur le classement, une attraction à proposer, une erreur à signaler ? Écrivez-nous, nous répondons par e-mail.</p>
+    <dl class="c-facts">
+      <div><dt>Délai de réponse</dt><dd>En général sous quelques jours ouvrés.</dd></div>
+      <div><dt>Par e-mail</dt><dd><a href="mailto:contact@thepulselabel.com">contact@thepulselabel.com</a></dd></div>
+      <div><dt>Sur Instagram</dt><dd><a href="https://www.instagram.com/thepulsescore/" target="_blank" rel="noopener">@thepulsescore</a></dd></div>
+    </dl>
+  </div>
+
+  <form class="c-form" id="contact-form" novalidate>
+    <div class="row two">
+      <div class="f">
+        <label for="c-name">Votre nom</label>
+        <input id="c-name" name="name" type="text" autocomplete="name" required maxlength="80">
+        <p class="err" id="e-name"></p>
+      </div>
+      <div class="f">
+        <label for="c-email">Votre e-mail</label>
+        <input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120">
+        <p class="err" id="e-email"></p>
+      </div>
+    </div>
+
+    <div class="f">
+      <label for="c-subject">Sujet</label>
+      <select id="c-subject" name="subject" required>
+        <option value="question">Une question</option>
+        <option value="attraction">Proposer une attraction à évaluer</option>
+        <option value="correction">Signaler une erreur sur une fiche</option>
+        <option value="reponse">Droit de réponse</option>
+        <option value="presse">Presse ou partenariat</option>
+        <option value="donnees">Mes données personnelles</option>
+        <option value="autre">Autre</option>
+      </select>
+      <p class="hint" id="h-subject"></p>
+    </div>
+
+    <div class="f">
+      <label for="c-message">Votre message</label>
+      <textarea id="c-message" name="message" rows="7" required minlength="10" maxlength="4000"></textarea>
+      <div class="meta"><p class="err" id="e-message"></p><span id="c-count">0 / 4000</span></div>
+    </div>
+
+    <!-- Piège anti-robots : invisible pour les visiteurs, ne pas supprimer -->
+    <div class="hp" aria-hidden="true"><label>Ne pas remplir <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+
+    <div class="f check">
+      <input id="c-consent" name="consent" type="checkbox" required>
+      <label for="c-consent">J’accepte que mes nom, e-mail et message soient utilisés uniquement pour répondre à ma demande, comme décrit dans la <a href="charte.html#donnees">charte juridique</a>.</label>
+    </div>
+    <p class="err" id="e-consent"></p>
+
+    <div class="actions">
+      <button class="btn btn-primary" type="submit" id="c-send">Envoyer le message</button>
+    </div>
+    <p class="status" id="c-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="c-done" id="c-done" hidden tabindex="-1">
+    <h2 class="h-sec">Message envoyé</h2>
+    <p class="lead">Merci, votre message est bien parti. Nous vous répondrons à l’adresse indiquée.</p>
+    <a class="btn btn-outline" href="index.html">Retour à l’accueil</a>
+  </div>
+</main>
+
+<footer id="site-footer">
+  <p><a href="mentions-legales.html">Mentions légales</a> · <a href="charte.html">Charte juridique</a> · <a href="contact.html">Contact</a></p>
+</footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/contact.js"></script>
+</body>
+</html>
